@@ -1,0 +1,36 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-peakforms {
+	border: 1px dotted #f00;
+}
+
+.peakforms-recaptcha-preview {
+	border: 1px solid #ccc;
+	padding: 20px;
+	background: #f7f7f7;
+	text-align: center;
+
+	.recaptcha-placeholder {
+		display: inline-block;
+		padding: 10px 20px;
+		background: #fff;
+		border: 1px dashed #999;
+		border-radius: 4px;
+
+		small {
+			color: #666;
+			margin-top: 5px;
+		}
+	}
+}
+
+.components-placeholder__error {
+	color: #cc1818;
+	padding: 8px 16px;
+	background-color: #ffebe9;
+	border-radius: 2px;
+}

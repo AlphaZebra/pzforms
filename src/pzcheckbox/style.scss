@@ -1,0 +1,18 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ */
+
+// class for the checkbox
+.form-style-1 input[type="checkbox"] {
+	margin-top: 33px;
+	width: 30px !important;
+	height: 30px !important;
+}
+
+// class for the label
+.form-style-1-checkbox {
+	margin-top: 35px !important;
+	margin-left: 10px !important;
+	display: inline-flex;
+}

@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "peakforms/pzcheckbox",
+	"version": "0.1.0",
+	"title": "Peakforms Checkbox",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Peakforms Checkbox.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "peakforms",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"prompt": {
+			"type": "string",
+			"default": "Value"
+		},
+
+		"checkboxID": {
+			"type": "string"
+		},
+		"isChecked": {
+			"type": "boolean",
+			"default": false
+		},
+		"mustCheck": {
+			"type": "boolean",
+			"default": false
+		},
+		"name": {
+			"type": "string"
+		},
+		"siteURL": {
+			"type": "string"
+		},
+		"marginValues": {
+			"type": "object",
+			"default": {
+				"top": "20px",
+				"left": "0px",
+				"right": "0px",
+				"bottom": "20px"
+			}
+		},
+		"backgroundColor": {
+			"type": "string"
+		}
+	}
+}

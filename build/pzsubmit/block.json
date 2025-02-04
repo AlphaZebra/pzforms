@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "peakforms/pzsubmit",
+  "version": "0.1.0",
+  "title": "PZ Submit",
+  "category": "peakforms",
+  "icon": "smiley",
+  "description": "Submit button.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "peakforms",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "myheader": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Submit"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#0000ff"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "marginValues": {
+      "type": "object",
+      "default": {
+        "top": "20px",
+        "left": "10px",
+        "right": "10px",
+        "bottom": "20px"
+      }
+    },
+    "paddingValues": {
+      "type": "object",
+      "default": {
+        "top": "20px",
+        "left": "10px",
+        "right": "10px",
+        "bottom": "20px"
+      }
+    }
+  }
+}

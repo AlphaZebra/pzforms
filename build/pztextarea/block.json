@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "peakforms/pztextarea",
+  "version": "0.1.0",
+  "title": "Peakforms Textarea",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "A textarea field for Peakforms",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "peakforms",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "prompt": {
+      "type": "string",
+      "default": "Value"
+    },
+    "id": {
+      "type": "string",
+      "default": "some1"
+    },
+    "name": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "white"
+    },
+    "loadCurrent": {
+      "type": "boolean",
+      "default": false
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "rows": {
+      "type": "string",
+      "default": "4"
+    },
+    "cols": {
+      "type": "string",
+      "default": "80"
+    },
+    "marginValues": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0"
+      }
+    },
+    "paddingValues": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0"
+      }
+    }
+  }
+}
