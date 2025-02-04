@@ -32,7 +32,10 @@ export default function save({ attributes }) {
 					padding: `${attributes.paddingValues.top}px ${attributes.paddingValues.right}px ${attributes.paddingValues.bottom}px ${attributes.paddingValues.left}px`,
 				}}
 			>
-				<label for={attributes.id}>{attributes.prompt}</label>
+				<label htmlFor={attributes.id}>
+					{attributes.prompt}
+					{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
+				</label>
 				<textarea
 					id={attributes.id}
 					name={attributes.name}

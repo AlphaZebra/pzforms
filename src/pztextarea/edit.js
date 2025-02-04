@@ -67,6 +67,16 @@ export default function Edit(props) {
 						value={attributes.id}
 						onChange={(value) => setAttributes({ id: value })}
 					/>
+					<CheckboxControl
+						label="Required"
+						checked={attributes.required}
+						onChange={(value) => setAttributes({ required: value })}
+					/>
+					<CheckboxControl
+						label="Show Asterisk"
+						checked={attributes.showAsterisk}
+						onChange={(value) => setAttributes({ showAsterisk: value })}
+					/>
 				</PanelBody>
 				<PanelBody title="Spacing" initialOpen={false}>
 					<BoxControl
@@ -88,9 +98,12 @@ export default function Edit(props) {
 			<div
 				style={{
 					margin: marginString,
-					backgroundColor: "purple",
 				}}
 			>
+				<label htmlFor={attributes.id}>
+					{attributes.prompt}
+					{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
+				</label>
 				<TextareaControl
 					id={attributes.id}
 					name={attributes.name}

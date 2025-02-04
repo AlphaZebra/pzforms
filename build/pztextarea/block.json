@@ -64,6 +64,10 @@
         "bottom": "0",
         "left": "0"
       }
+    },
+    "showAsterisk": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
