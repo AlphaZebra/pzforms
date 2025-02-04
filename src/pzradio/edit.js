@@ -118,25 +118,15 @@ export default function Edit(props) {
 	return (
 		<div {...blockProps}>
 			<InspectorControls>
-				<PanelColorSettings
-					__experimentalIsRenderedInSidebar
-					colorSettings={[
-						{
-							value: attributes.formBackground,
-							onChange: onChangeBackgroundColor,
-							label: "Form background color ",
-						},
-						{
-							value: attributes.formColor,
-							onChange: onChangeFormColor,
-							label: "Form text color ",
-						},
-					]}
-				/>
 				<CheckboxControl
 					label="Required"
 					checked={attributes.required}
 					onChange={(value) => setAttributes({ required: value })}
+				/>
+				<CheckboxControl
+					label="Horizontal Layout"
+					checked={attributes.horizontalLayout}
+					onChange={(value) => setAttributes({ horizontalLayout: value })}
 				/>
 			</InspectorControls>
 

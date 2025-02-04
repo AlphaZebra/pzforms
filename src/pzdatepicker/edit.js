@@ -66,8 +66,10 @@ export default function Edit(props) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<label for={attributes.id}>{attributes.prompt}</label>
-			<input type="date" id={attributes.id} name={attributes.id} />
+			<div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+				<label htmlFor={attributes.id}>{attributes.prompt}</label>
+				<input type="date" id={attributes.id} name={attributes.id} />
+			</div>
 		</div>
 	);
 }

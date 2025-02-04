@@ -25,23 +25,37 @@ export default function save({ attributes }) {
 			<div {...useBlockProps.save()} className="form-style-1">
 				<p className="pz-question-text">{attributes.question}</p>
 
-				{attributes.answers.map(function (answer, index) {
-					return (
-						<div>
-							<input
-								type="radio"
-								id={answer}
-								name={attributes.slug}
-								value={answer}
-								required="required"
-							/>
-							<label className="pz-answer-text" for={answer}>
-								{answer}
-							</label>
-							<br></br>
-						</div>
-					);
-				})}
+				<div
+					style={{
+						display: attributes.horizontalLayout ? "flex" : "block",
+						flexWrap: "wrap",
+						gap: "20px",
+					}}
+				>
+					{attributes.answers.map(function (answer, index) {
+						return (
+							<div
+								style={{
+									flex: attributes.horizontalLayout
+										? "0 1 calc(33.33% - 14px)"
+										: "1 1 100%",
+								}}
+							>
+								<input
+									type="radio"
+									id={answer}
+									name={attributes.slug}
+									value={answer}
+									required="required"
+								/>
+								<label className="pz-answer-text" for={answer}>
+									{answer}
+								</label>
+								<br></br>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		);
 	}
@@ -52,22 +66,37 @@ export default function save({ attributes }) {
 		<div {...useBlockProps.save()} className="form-style-1">
 			<p className="pz-question-text">{attributes.question}</p>
 
-			{attributes.answers.map(function (answer, index) {
-				return (
-					<div>
-						<input
-							type="radio"
-							id={answer}
-							name={attributes.slug}
-							value={answer}
-						/>
-						<label className="pz-answer-text" for={answer}>
-							{answer}
-						</label>
-						<br></br>
-					</div>
-				);
-			})}
+			<div
+				style={{
+					display: attributes.horizontalLayout ? "flex" : "block",
+					flexWrap: "wrap",
+					gap: "20px",
+				}}
+			>
+				{attributes.answers.map(function (answer, index) {
+					return (
+						<div
+							style={{
+								flex: attributes.horizontalLayout
+									? "0 1 calc(33.33% - 14px)"
+									: "1 1 100%",
+							}}
+						>
+							<input
+								type="radio"
+								id={answer}
+								name={attributes.slug}
+								value={answer}
+								required={attributes.required ? "required" : undefined}
+							/>
+							<label className="pz-answer-text" for={answer}>
+								{answer}
+							</label>
+							<br></br>
+						</div>
+					);
+				})}
+			</div>
 		</div>
 	);
 }

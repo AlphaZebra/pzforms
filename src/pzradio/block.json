@@ -69,24 +69,9 @@
 		"textColor": {
 			"type": "string"
 		},
-		"buttonTextColor": {
-			"type": "string",
-			"default": "#000000"
-		},
-		"buttonBackgroundColor": {
-			"type": "string",
-			"default": "#FFFFFF"
-		},
-		"redirectURL": {
-			"type": "string"
-		},
-		"errorURL": {
-			"type": "string",
-			"default": "/error/"
-		},
-
-		"correctAnswer": { "type": "number", "default": "undefined" },
-		"shortName": { "type": "string", "default": "undefined" },
-		"priority": { "type": "string" }
+		"horizontalLayout": {
+			"type": "boolean",
+			"default": false
+		}
 	}
 }
