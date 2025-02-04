@@ -11,7 +11,8 @@ add_action('admin_post_do-form', 'do_form');
 add_action('admin_post_nopriv_do-form', 'do_form');
 
 /** 
- * utility function to find Russian language messages, which are invariably spam
+ * utility function to find Russian language messages, 
+ * which are invariably spam
  */
 function isRussian($text) {
     return preg_match('/[А-Яа-яЁё]/u', $text);
@@ -80,9 +81,14 @@ function do_form () {
 
 	}  
 
+/**
+ * utility function that gives the user ability to hook just after data written 
+ * and then to filter the redirect URL before redirecting
+ */
 function hook_and_redirect( $id, $url ) {
 	if( $id != 0 ) {
 		// add hook for user customization
+
 		do_action( 'pz_data_written', $id );
 	}
 	
@@ -100,4 +106,28 @@ function hook_and_redirect( $id, $url ) {
 	}
 
 }
+
+/**
+ * Add settings link to plugin listing
+ */
+function peakforms_plugin_action_links($links) {
+    $settings_link = '<a href="' . admin_url('options-general.php?page=peakforms-settings') . '">Settings</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
+add_filter('plugin_action_links_peakforms/peakforms.php', 'peakforms_plugin_action_links');
+
+/**
+ * Add additional information to plugin listing
+ */
+function peakforms_plugin_row_meta($links, $file) {
+    if ('peakforms/peakforms.php' === $file) {
+        $row_meta = array(
+            'custom_text' => '<span style="color: #555;">Thank you for using PeakForms!</span>'
+        );
+        return array_merge($links, $row_meta);
+    }
+    return $links;
+}
+add_filter('plugin_row_meta', 'peakforms_plugin_row_meta', 10, 2);
 
