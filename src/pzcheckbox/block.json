@@ -49,6 +49,10 @@
 		},
 		"backgroundColor": {
 			"type": "string"
+		},
+		"showAsterisk": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }

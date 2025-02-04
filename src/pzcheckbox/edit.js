@@ -57,12 +57,12 @@ export default function Edit(props) {
 						onChange={(value) => setAttributes({ name: value })}
 					/>
 					<CheckboxControl
-						label="Prefill"
-						checked={attributes.isPrefill}
-						onChange={(value) => setAttributes({ isPrefill: value })}
+						label="Show Asterisk"
+						checked={attributes.showAsterisk}
+						onChange={(value) => setAttributes({ showAsterisk: value })}
 					/>
 					<CheckboxControl
-						label="If not prefill, default on?"
+						label="Default on?"
 						checked={attributes.isChecked}
 						onChange={(value) => setAttributes({ isChecked: value })}
 					/>
@@ -85,7 +85,14 @@ export default function Edit(props) {
 				}}
 			>
 				<CheckboxControl
-					label={attributes.prompt}
+					label={
+						<>
+							{attributes.prompt}
+							{attributes.showAsterisk && (
+								<span style={{ color: "red" }}> *</span>
+							)}
+						</>
+					}
 					checked={attributes.isChecked}
 				/>
 			</div>

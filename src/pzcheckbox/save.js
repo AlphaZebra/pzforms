@@ -5,37 +5,32 @@
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps } from "@wordpress/block-editor";
-import { CheckboxControl } from "@wordpress/components";
 
 export default function save({ attributes }) {
-	attributes.class = "form-style-1";
-	const mustVal = attributes.mustCheck == true ? "yes" : "";
+	const marginString = attributes.marginValues
+		? `${attributes.marginValues.top || "0"} ${
+				attributes.marginValues.right || "0"
+		  } ${attributes.marginValues.bottom || "0"} ${
+				attributes.marginValues.left || "0"
+		  }`
+		: undefined;
 
 	return (
 		<div
 			{...useBlockProps.save()}
+			className="pz-checkbox"
 			style={{
-				...(attributes.marginValues && {
-					margin: `${attributes.marginValues.top || "0"} ${
-						attributes.marginValues.right || "0"
-					} ${attributes.marginValues.bottom || "0"} ${
-						attributes.marginValues.left || "0"
-					}`,
-				}),
-				display: "flex",
-				alignItems: "center",
-				gap: "0.5em",
+				...(marginString && { margin: marginString }),
 			}}
 		>
-			<input
-				type="checkbox"
-				id={attributes.id}
-				name={attributes.name}
-				checked={attributes.isChecked}
-				datamust={mustVal}
-			/>
-			<label htmlFor={attributes.id} className="form-style-1-checkbox">
-				{attributes.prompt}{" "}
+			<label>
+				<input
+					type="checkbox"
+					name={attributes.name}
+					defaultChecked={attributes.isChecked && !attributes.isPrefill}
+				/>
+				{attributes.prompt}
+				{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
 			</label>
 		</div>
 	);
