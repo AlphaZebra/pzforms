@@ -22,16 +22,21 @@ function isRussian($text) {
  * Form handler
  */
 function do_form () {
-	$captcha = new PeakForms_Captcha();
-	
+
+	// only check captcha if the form has a captcha
+	if( isset($_POST['captcha']) && $_POST['captcha'] == 'true' ) {
+		$captcha = new PeakForms_Captcha();
+
 	$errors = array();
 	if( $errors = $captcha->validate_captcha( $errors, $_POST ) ) {
 
-		$errorURL = isset($_POST['errorURL']) ? $_POST['errorURL'] : '';
-		wp_redirect( $errorURL || '/' );
-		exit;
+			$errorURL = isset($_POST['errorURL']) ? $_POST['errorURL'] : '';
+			wp_redirect( $errorURL || '/' );
+			exit;
+		}
 	}
 	
+
 	// add hook for user customization
 	$_POST = apply_filters( 'pz_pre_form_processing', $_POST );
 
@@ -42,7 +47,7 @@ function do_form () {
     $options = get_option('peakforms_option_name');
     $encryption_key = isset($options['peakforms_key']) ? $options['peakforms_key'] : '';
     $email = isset($options['peakforms_email']) ? $options['peakforms_email'] : '';
-	
+
 	// Get rid of the g-recaptcha-response field
 	unset($_POST['g-recaptcha-response']);
 	
