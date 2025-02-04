@@ -52,6 +52,10 @@
         "left": "0px",
         "right": "0px"
       }
+    },
+    "showAsterisk": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

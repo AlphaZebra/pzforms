@@ -33,6 +33,11 @@ export default function Edit(props) {
 						checked={attributes.required}
 						onChange={(value) => setAttributes({ required: value })}
 					/>
+					<CheckboxControl
+						label="Show Asterisk"
+						checked={attributes.showAsterisk}
+						onChange={(value) => setAttributes({ showAsterisk: value })}
+					/>
 				</PanelBody>
 				<PanelBody title="Spacing" initialOpen={false}>
 					<BoxControl
@@ -61,6 +66,10 @@ export default function Edit(props) {
 						: undefined,
 				}}
 			>
+				<label htmlFor={attributes.id}>
+					{attributes.prompt}
+					{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
+				</label>
 				<TextControl
 					type="email"
 					id={attributes.id}

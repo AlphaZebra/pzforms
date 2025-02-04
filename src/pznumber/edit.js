@@ -11,11 +11,28 @@ export default function Edit(props) {
 		<div {...useBlockProps()}>
 			<InspectorControls>
 				<PanelBody title="Config">
-					<TextControl
-						label="Prompt displayed with field"
-						value={attributes.prompt}
-						onChange={(value) => setAttributes({ prompt: value })}
-					/>
+					<PanelBody title="Field Settings">
+						<TextControl
+							label="Prompt displayed with field"
+							value={attributes.prompt}
+							onChange={(value) => setAttributes({ prompt: value })}
+						/>
+						<TextControl
+							label="Field ID"
+							value={attributes.id}
+							onChange={(value) => setAttributes({ id: value })}
+						/>
+						<CheckboxControl
+							label="Required"
+							checked={attributes.required}
+							onChange={(value) => setAttributes({ required: value })}
+						/>
+						<CheckboxControl
+							label="Show Asterisk"
+							checked={attributes.showAsterisk}
+							onChange={(value) => setAttributes({ showAsterisk: value })}
+						/>
+					</PanelBody>
 					<TextControl
 						label="Field variable name"
 						help="Unique to this page. No spaces."
@@ -27,11 +44,6 @@ export default function Edit(props) {
 						help="May be a percentage or a number of pixels."
 						value={attributes.width}
 						onChange={(value) => setAttributes({ width: value })}
-					/>
-					<CheckboxControl
-						label="Required"
-						checked={attributes.required}
-						onChange={(value) => setAttributes({ required: value })}
 					/>
 				</PanelBody>
 				<PanelBody title="Spacing" initialOpen={false}>
@@ -61,6 +73,10 @@ export default function Edit(props) {
 						: undefined,
 				}}
 			>
+				<label htmlFor={attributes.id}>
+					{attributes.prompt}
+					{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
+				</label>
 				<TextControl
 					type="number"
 					id={attributes.id}

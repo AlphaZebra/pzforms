@@ -21,7 +21,10 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...useBlockProps.save()} style={divStyle}>
-			<label htmlFor={attributes.id}>{attributes.prompt}</label>
+			<label htmlFor={attributes.id}>
+				{attributes.prompt}
+				{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
+			</label>
 			<div className="email-input-wrapper">
 				<input
 					{...commonProps}
