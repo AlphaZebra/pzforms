@@ -30,35 +30,44 @@ function do_form () {
 		wp_redirect( $errorURL || '/' );
 		exit;
 	}
-
-
-
 	
 	// add hook for user customization
 	$_POST = apply_filters( 'pz_pre_form_processing', $_POST );
 
-
 	$_POST = wp_unslash( $_POST ); // wordpress escapes form input, sigh... so we remove the slashes
 	extract( $_POST, EXTR_OVERWRITE ); // let's break the form input into separate variables
 
-	// this php-code-in-form capability is not currently used in pzGather, but is used in pzForm
-	if( isset( $_POST['phpFunctionName']) ) {
-		if( $_POST['phpFunctionName'] != "" ) {
-			// get function record from pz_function   WHERE function_name = $_POST['phpFunctionName']
-			$temp = $_POST['phpFunctionName'];
-			$results = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}pz_function WHERE function_name = '$temp'", ARRAY_A );
-			eval( $results[0]['function_text'] ); // and evaluate the code written by the form creator (not the end user)
-
-			}
-		}
-
-    // let's get the encryption key and email from the database
+	// let's get the encryption key and email from the database
     $options = get_option('peakforms_option_name');
     $encryption_key = isset($options['peakforms_key']) ? $options['peakforms_key'] : '';
     $email = isset($options['peakforms_email']) ? $options['peakforms_email'] : '';
 	
 	// Get rid of the g-recaptcha-response field
 	unset($_POST['g-recaptcha-response']);
+	
+	// if the phpFunctionName is set, and it's not empty, 
+	// then we need to evaluate the function
+
+	if( isset($_POST['phpFunctionName']) && $_POST['phpFunctionName'] != '' ) {
+		// find the post in the database where the post title matches $phpFunctionName
+
+		// Or get_posts method
+		$posts = get_posts(array(
+			'post_type' => 'peakfunctions',
+			'numberposts' => -1,
+			'post_status' => 'publish',
+			'title' => $_POST['phpFunctionName']		
+		));
+
+		// if there are no posts, return an error
+		if( empty($posts) ) {
+			wp_redirect( $errorURL || '/' );
+			exit;
+		} else {
+			// evaluate the function
+			eval( $posts[0]->post_content );
+		}
+	}
 
 	// send an email if the form included a send-to address
 	if( isset($email) && $email != '' ) {
@@ -68,7 +77,6 @@ function do_form () {
 	}
 
 	hook_and_redirect( 0, $_POST['successURL'] );
-      
 
 	}  
 
