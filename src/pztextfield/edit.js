@@ -39,6 +39,11 @@ export default function Edit(props) {
 						onChange={(value) => setAttributes({ required: value })}
 					/>
 					<CheckboxControl
+						label="Show Asterisk"
+						checked={attributes.showAsterisk}
+						onChange={(value) => setAttributes({ showAsterisk: value })}
+					/>
+					<CheckboxControl
 						label="Multiline"
 						checked={attributes.multiline}
 						onChange={(value) => setAttributes({ multiline: value })}
@@ -74,7 +79,14 @@ export default function Edit(props) {
 				<TextControl
 					id={attributes.id}
 					name={attributes.name}
-					label={attributes.prompt}
+					label={
+						<>
+							{attributes.prompt}
+							{attributes.showAsterisk && (
+								<span style={{ color: "red" }}> *</span>
+							)}
+						</>
+					}
 					style={{
 						width: attributes.width,
 					}}

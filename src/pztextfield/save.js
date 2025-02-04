@@ -28,7 +28,10 @@ export default function save({ attributes }) {
 	} else {
 		return (
 			<div {...useBlockProps.save()}>
-				<label for={attributes.field}>{attributes.prompt}</label>
+				<label for={attributes.name}>
+					{attributes.prompt}
+					{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
+				</label>
 				<input
 					type="text"
 					id={attributes.id}
