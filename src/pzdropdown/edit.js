@@ -5,11 +5,7 @@
  */
 import { __ } from "@wordpress/i18n";
 
-import {
-	useBlockProps,
-	InspectorControls,
-	PanelColorSettings,
-} from "@wordpress/block-editor";
+import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
 
 import {
 	PanelBody,
@@ -18,19 +14,12 @@ import {
 	FlexBlock,
 	FlexItem,
 	Button,
-	SelectControl,
 	CheckboxControl,
 } from "@wordpress/components";
 
-import { __experimentalBoxControl as BoxControl } from "@wordpress/components";
-
 export default function Edit(props) {
 	const { attributes, setAttributes } = props;
-	const { backgroundColor } = attributes;
-
 	const blockProps = useBlockProps();
-	const { textColor } = attributes;
-	const curQuestion = props.attributes.question;
 
 	// get starting style values
 	const body = document.querySelector("body");
@@ -59,23 +48,6 @@ export default function Edit(props) {
 			buttonBackgroundHoverColor: themeButtonBackgroundHoverColor,
 		});
 
-	// define the onChange functions
-	const onChangeBackgroundColor = (val) => {
-		setAttributes({ formBackground: val });
-	};
-	const onChangeFormColor = (val) => {
-		setAttributes({ formColor: val });
-	};
-	const onChangeButtonColor = (val) => {
-		setAttributes({ buttonColor: val });
-	};
-	const onChangeButtonTextColor = (val) => {
-		setAttributes({ buttonTextColor: val });
-	};
-	const onChangeButtonBackgroundHoverColor = (val) => {
-		setAttributes({ buttonBackgroundHoverColor: val });
-	};
-
 	function updateQuestion(newVal) {
 		props.setAttributes({ question: newVal });
 	}
@@ -84,35 +56,11 @@ export default function Edit(props) {
 		props.setAttributes({ slug: newVal });
 	}
 
-	function updateTextColor(newVal) {
-		props.setAttributes({ textColor: newVal });
-	}
-
-	function updateButtonTextColor(newVal) {
-		props.setAttributes({ buttonTextColor: newVal });
-	}
-
-	function updateButtonBackgroundColor(newVal) {
-		props.setAttributes({ buttonBackgroundColor: newVal });
-	}
-
-	function updateBlockBackgroundColor(newVal) {
-		props.setAttributes({ blockBackgroundColor: newVal });
-	}
-
 	function deleteAnswer(x) {
 		const newAnswers = props.attributes.answers.filter(function (z, index) {
 			return index != x;
 		});
 		props.setAttributes({ answers: newAnswers });
-
-		if (x == props.attributes.correctAnswer) {
-			props.setAttributes({ correctAnswer: undefined });
-		}
-	}
-
-	function setAnswer(x) {
-		props.setAttributes({ correctAnswer: x });
 	}
 
 	return (
@@ -122,11 +70,6 @@ export default function Edit(props) {
 					label="Required"
 					checked={attributes.required}
 					onChange={(value) => setAttributes({ required: value })}
-				/>
-				<CheckboxControl
-					label="Horizontal Layout"
-					checked={attributes.horizontalLayout}
-					onChange={(value) => setAttributes({ horizontalLayout: value })}
 				/>
 			</InspectorControls>
 
@@ -143,7 +86,7 @@ export default function Edit(props) {
 					onChange={updateSlug}
 					style={{ fontSize: "20px" }}
 				/>
-				<p style={{ fontSize: "13px", margin: "20px 0 8px 0" }}>Answers:</p>
+				<p style={{ fontSize: "13px", margin: "20px 0 8px 0" }}>Options:</p>
 				{props.attributes.answers.map(function (answer, index) {
 					return (
 						<Flex>
@@ -157,7 +100,6 @@ export default function Edit(props) {
 									}}
 								/>
 							</FlexBlock>
-
 							<FlexItem>
 								<Button
 									variant="link"
@@ -178,7 +120,7 @@ export default function Edit(props) {
 						});
 					}}
 				>
-					Add another answer
+					Add another option
 				</Button>
 			</div>
 		</div>

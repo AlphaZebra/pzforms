@@ -29,20 +29,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function Edit(props) {
   const {
     attributes,
     setAttributes
   } = props;
-  const {
-    backgroundColor
-  } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
-  const {
-    textColor
-  } = attributes;
-  const curQuestion = props.attributes.question;
 
   // get starting style values
   const body = document.querySelector("body");
@@ -65,33 +57,6 @@ function Edit(props) {
   if (attributes.buttonBackgroundHoverColor == "") setAttributes({
     buttonBackgroundHoverColor: themeButtonBackgroundHoverColor
   });
-
-  // define the onChange functions
-  const onChangeBackgroundColor = val => {
-    setAttributes({
-      formBackground: val
-    });
-  };
-  const onChangeFormColor = val => {
-    setAttributes({
-      formColor: val
-    });
-  };
-  const onChangeButtonColor = val => {
-    setAttributes({
-      buttonColor: val
-    });
-  };
-  const onChangeButtonTextColor = val => {
-    setAttributes({
-      buttonTextColor: val
-    });
-  };
-  const onChangeButtonBackgroundHoverColor = val => {
-    setAttributes({
-      buttonBackgroundHoverColor: val
-    });
-  };
   function updateQuestion(newVal) {
     props.setAttributes({
       question: newVal
@@ -102,42 +67,12 @@ function Edit(props) {
       slug: newVal
     });
   }
-  function updateTextColor(newVal) {
-    props.setAttributes({
-      textColor: newVal
-    });
-  }
-  function updateButtonTextColor(newVal) {
-    props.setAttributes({
-      buttonTextColor: newVal
-    });
-  }
-  function updateButtonBackgroundColor(newVal) {
-    props.setAttributes({
-      buttonBackgroundColor: newVal
-    });
-  }
-  function updateBlockBackgroundColor(newVal) {
-    props.setAttributes({
-      blockBackgroundColor: newVal
-    });
-  }
   function deleteAnswer(x) {
     const newAnswers = props.attributes.answers.filter(function (z, index) {
       return index != x;
     });
     props.setAttributes({
       answers: newAnswers
-    });
-    if (x == props.attributes.correctAnswer) {
-      props.setAttributes({
-        correctAnswer: undefined
-      });
-    }
-  }
-  function setAnswer(x) {
-    props.setAttributes({
-      correctAnswer: x
     });
   }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -147,12 +82,6 @@ function Edit(props) {
     checked: attributes.required,
     onChange: value => setAttributes({
       required: value
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-    label: "Horizontal Layout",
-    checked: attributes.horizontalLayout,
-    onChange: value => setAttributes({
-      horizontalLayout: value
     })
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: attributes.formStyle
@@ -175,7 +104,7 @@ function Edit(props) {
       fontSize: "13px",
       margin: "20px 0 8px 0"
     }
-  }, "Answers:"), props.attributes.answers.map(function (answer, index) {
+  }, "Options:"), props.attributes.answers.map(function (answer, index) {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Flex, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.FlexBlock, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
       value: answer,
       onChange: x => {
@@ -197,7 +126,7 @@ function Edit(props) {
         answers: props.attributes.answers.concat([""])
       });
     }
-  }, "Add another answer")));
+  }, "Add another option")));
 }
 
 /***/ }),
@@ -348,67 +277,20 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
-  const thisURL = window.location.href;
-  const url = new URL(thisURL);
-  const adminPath = url.protocol + "//" + url.host + "/wp-admin/admin-post.php";
-  if (attributes.required == true) {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
-      className: "form-style-1"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-      className: "pz-question-text"
-    }, attributes.question), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      style: {
-        display: attributes.horizontalLayout ? "flex" : "block",
-        flexWrap: "wrap",
-        gap: "20px"
-      }
-    }, attributes.answers.map(function (answer, index) {
-      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-        style: {
-          flex: attributes.horizontalLayout ? "0 1 calc(33.33% - 14px)" : "1 1 100%"
-        }
-      }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-        type: "radio",
-        id: answer,
-        name: attributes.slug,
-        value: answer,
-        required: "required"
-      }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-        className: "pz-answer-text",
-        for: answer
-      }, answer), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null));
-    })));
-  }
-
-  // else
-
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
     className: "form-style-1"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "pz-question-text"
-  }, attributes.question), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    style: {
-      display: attributes.horizontalLayout ? "flex" : "block",
-      flexWrap: "wrap",
-      gap: "20px"
-    }
-  }, attributes.answers.map(function (answer, index) {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      style: {
-        flex: attributes.horizontalLayout ? "0 1 calc(33.33% - 14px)" : "1 1 100%"
-      }
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-      type: "radio",
-      id: answer,
-      name: attributes.slug,
-      value: answer,
-      required: attributes.required ? "required" : undefined
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-      className: "pz-answer-text",
-      for: answer
-    }, answer), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null));
+  }, attributes.question), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("select", {
+    name: attributes.slug,
+    required: attributes.required ? "required" : undefined
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+    value: ""
+  }, "Select an option"), attributes.answers.map(function (answer) {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("option", {
+      value: answer
+    }, answer);
   })));
 }
 
