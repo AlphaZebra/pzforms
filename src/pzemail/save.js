@@ -21,14 +21,17 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...useBlockProps.save()} style={divStyle}>
-			<label htmlFor={attributes.id}>
+			<label htmlFor={attributes.id} style={{ display: "block" }}>
 				{attributes.prompt}
-				{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
+				{attributes.required && attributes.showAsterisk}
 			</label>
 			<div className="email-input-wrapper">
 				<input
 					{...commonProps}
-					{...(attributes.required && { required: true })}
+					{...(attributes.required && {
+						required: true,
+						"aria-required": "true",
+					})}
 				/>
 				<span
 					id={`${attributes.id}-warning`}

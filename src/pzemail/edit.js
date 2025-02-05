@@ -66,15 +66,12 @@ export default function Edit(props) {
 						: undefined,
 				}}
 			>
-				<label htmlFor={attributes.id}>
-					{attributes.prompt}
-					{attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
-				</label>
 				<TextControl
 					type="email"
 					id={attributes.id}
 					name={attributes.name}
 					label={attributes.prompt}
+					required={attributes.required && attributes.showAsterisk}
 					style={{
 						width: attributes.width,
 					}}

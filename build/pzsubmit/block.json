@@ -48,6 +48,22 @@
         "right": "10px",
         "bottom": "20px"
       }
+    },
+    "hoverColor": {
+      "type": "string",
+      "default": "#0000ff"
+    },
+    "hoverTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "activeColor": {
+      "type": "string",
+      "default": "#0000cc"
+    },
+    "activeTextColor": {
+      "type": "string",
+      "default": "#ffffff"
     }
   }
 }

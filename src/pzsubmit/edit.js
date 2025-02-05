@@ -5,15 +5,19 @@
  */
 import { __ } from "@wordpress/i18n";
 
-import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
+import {
+	useBlockProps,
+	InspectorControls,
+	PanelColorSettings,
+} from "@wordpress/block-editor";
 import {
 	PanelBody,
 	TextControl,
 	Button,
 	ColorPicker,
+	__experimentalBoxControl as BoxControl,
 } from "@wordpress/components";
 // import Button from "@mui/material/Button";
-import { __experimentalBoxControl as BoxControl } from "@wordpress/components";
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -33,23 +37,47 @@ export default function Edit(props) {
 	return (
 		<div {...useBlockProps()}>
 			<InspectorControls>
+				<PanelColorSettings
+					title={__("Color settings")}
+					initialOpen={false}
+					colorSettings={[
+						{
+							value: attributes.backgroundColor,
+							onChange: (color) => setAttributes({ backgroundColor: color }),
+							label: __("Background Color"),
+						},
+						{
+							value: attributes.textColor,
+							onChange: (color) => setAttributes({ textColor: color }),
+							label: __("Text Color"),
+						},
+						{
+							value: attributes.hoverColor,
+							onChange: (color) => setAttributes({ hoverColor: color }),
+							label: __("Hover Background Color"),
+						},
+						{
+							value: attributes.hoverTextColor,
+							onChange: (color) => setAttributes({ hoverTextColor: color }),
+							label: __("Hover Text Color"),
+						},
+						{
+							value: attributes.activeColor,
+							onChange: (color) => setAttributes({ activeColor: color }),
+							label: __("Active Background Color"),
+						},
+						{
+							value: attributes.activeTextColor,
+							onChange: (color) => setAttributes({ activeTextColor: color }),
+							label: __("Active Text Color"),
+						},
+					]}
+				/>
 				<PanelBody title="Button Text">
 					<TextControl
 						label="Button Text"
 						value={attributes.buttonText}
 						onChange={(value) => setAttributes({ buttonText: value })}
-					/>
-					<ColorPicker
-						label="Button Color"
-						color={attributes.backgroundColor}
-						onChange={(value) => setAttributes({ backgroundColor: value })}
-						enableAlpha={true}
-					/>
-					<ColorPicker
-						label="Text Color"
-						color={attributes.textColor}
-						onChange={(value) => setAttributes({ textColor: value })}
-						enableAlpha={true}
 					/>
 					<BoxControl
 						label="Margin"
@@ -76,22 +104,41 @@ export default function Edit(props) {
 					paddingBottom: attributes.paddingValues?.bottom || "0px",
 					paddingLeft: attributes.paddingValues?.left || "0px",
 					paddingRight: attributes.paddingValues?.right || "0px",
-					border: "1px solid red",
 					display: "block",
 					boxSizing: "border-box",
 				}}
 			>
-				<Button
-					id="pzbutton"
-					variant="primary"
+				<button
+					type="submit"
+					variant="contained"
 					size="large"
+					className={attributes.class}
 					style={{
 						backgroundColor: attributes.backgroundColor,
 						color: attributes.textColor,
+						minWidth: "100px",
+						minHeight: "40px",
+					}}
+					onClick={(e) => e.preventDefault()}
+					onMouseOver={(e) => {
+						e.currentTarget.style.backgroundColor = attributes.hoverColor;
+						e.currentTarget.style.color = attributes.hoverTextColor;
+					}}
+					onMouseOut={(e) => {
+						e.currentTarget.style.backgroundColor = attributes.backgroundColor;
+						e.currentTarget.style.color = attributes.textColor;
+					}}
+					onMouseDown={(e) => {
+						e.currentTarget.style.backgroundColor = attributes.activeColor;
+						e.currentTarget.style.color = attributes.activeTextColor;
+					}}
+					onMouseUp={(e) => {
+						e.currentTarget.style.backgroundColor = attributes.hoverColor;
+						e.currentTarget.style.color = attributes.hoverTextColor;
 					}}
 				>
 					{attributes.buttonText}
-				</Button>
+				</button>
 			</div>
 		</div>
 	);

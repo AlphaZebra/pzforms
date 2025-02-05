@@ -91,17 +91,12 @@ function Edit(props) {
       margin: marginValues ? `${marginValues.top} ${marginValues.right} ${marginValues.bottom} ${marginValues.left}` : undefined,
       padding: paddingValues ? `${paddingValues.top} ${paddingValues.right} ${paddingValues.bottom} ${paddingValues.left}` : undefined
     }
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: attributes.id
-  }, attributes.prompt, attributes.showAsterisk && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    style: {
-      color: "red"
-    }
-  }, " *")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     type: "email",
     id: attributes.id,
     name: attributes.name,
     label: attributes.prompt,
+    required: attributes.required && attributes.showAsterisk,
     style: {
       width: attributes.width
     }
@@ -146,17 +141,17 @@ function save({
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
     style: divStyle
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
-    htmlFor: attributes.id
-  }, attributes.prompt, attributes.showAsterisk && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    htmlFor: attributes.id,
     style: {
-      color: "red"
+      display: "block"
     }
-  }, " *")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, attributes.prompt, attributes.required && attributes.showAsterisk), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "email-input-wrapper"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     ...commonProps,
     ...(attributes.required && {
-      required: true
+      required: true,
+      "aria-required": "true"
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     id: `${attributes.id}-warning`,

@@ -32,7 +32,13 @@ export default function save({ attributes }) {
 				style={{
 					backgroundColor: attributes.backgroundColor,
 					color: attributes.textColor,
+					minWidth: "100px",
+					minHeight: "40px",
 				}}
+				onmouseover={`this.style.backgroundColor='${attributes.hoverColor}'; this.style.color='${attributes.hoverTextColor}';`}
+				onmouseout={`this.style.backgroundColor='${attributes.backgroundColor}'; this.style.color='${attributes.textColor}';`}
+				onmousedown={`this.style.backgroundColor='${attributes.activeColor}'; this.style.color='${attributes.activeTextColor}';`}
+				onmouseup={`this.style.backgroundColor='${attributes.hoverColor}'; this.style.color='${attributes.hoverTextColor}';`}
 			>
 				{attributes.buttonText}
 			</button>

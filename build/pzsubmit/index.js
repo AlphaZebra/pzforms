@@ -31,7 +31,6 @@ __webpack_require__.r(__webpack_exports__);
 
 // import Button from "@mui/material/Button";
 
-
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -52,7 +51,47 @@ function Edit(props) {
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Color settings"),
+    initialOpen: false,
+    colorSettings: [{
+      value: attributes.backgroundColor,
+      onChange: color => setAttributes({
+        backgroundColor: color
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Background Color")
+    }, {
+      value: attributes.textColor,
+      onChange: color => setAttributes({
+        textColor: color
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Text Color")
+    }, {
+      value: attributes.hoverColor,
+      onChange: color => setAttributes({
+        hoverColor: color
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Hover Background Color")
+    }, {
+      value: attributes.hoverTextColor,
+      onChange: color => setAttributes({
+        hoverTextColor: color
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Hover Text Color")
+    }, {
+      value: attributes.activeColor,
+      onChange: color => setAttributes({
+        activeColor: color
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Active Background Color")
+    }, {
+      value: attributes.activeTextColor,
+      onChange: color => setAttributes({
+        activeTextColor: color
+      }),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Active Text Color")
+    }]
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "Button Text"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: "Button Text",
@@ -60,20 +99,6 @@ function Edit(props) {
     onChange: value => setAttributes({
       buttonText: value
     })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPicker, {
-    label: "Button Color",
-    color: attributes.backgroundColor,
-    onChange: value => setAttributes({
-      backgroundColor: value
-    }),
-    enableAlpha: true
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ColorPicker, {
-    label: "Text Color",
-    color: attributes.textColor,
-    onChange: value => setAttributes({
-      textColor: value
-    }),
-    enableAlpha: true
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalBoxControl, {
     label: "Margin",
     values: attributes.marginValues,
@@ -97,17 +122,36 @@ function Edit(props) {
       paddingBottom: attributes.paddingValues?.bottom || "0px",
       paddingLeft: attributes.paddingValues?.left || "0px",
       paddingRight: attributes.paddingValues?.right || "0px",
-      border: "1px solid red",
       display: "block",
       boxSizing: "border-box"
     }
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    id: "pzbutton",
-    variant: "primary",
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "submit",
+    variant: "contained",
     size: "large",
+    className: attributes.class,
     style: {
       backgroundColor: attributes.backgroundColor,
-      color: attributes.textColor
+      color: attributes.textColor,
+      minWidth: "100px",
+      minHeight: "40px"
+    },
+    onClick: e => e.preventDefault(),
+    onMouseOver: e => {
+      e.currentTarget.style.backgroundColor = attributes.hoverColor;
+      e.currentTarget.style.color = attributes.hoverTextColor;
+    },
+    onMouseOut: e => {
+      e.currentTarget.style.backgroundColor = attributes.backgroundColor;
+      e.currentTarget.style.color = attributes.textColor;
+    },
+    onMouseDown: e => {
+      e.currentTarget.style.backgroundColor = attributes.activeColor;
+      e.currentTarget.style.color = attributes.activeTextColor;
+    },
+    onMouseUp: e => {
+      e.currentTarget.style.backgroundColor = attributes.hoverColor;
+      e.currentTarget.style.color = attributes.hoverTextColor;
     }
   }, attributes.buttonText)));
 }
@@ -160,8 +204,14 @@ function save({
     classname: attributes.class,
     style: {
       backgroundColor: attributes.backgroundColor,
-      color: attributes.textColor
-    }
+      color: attributes.textColor,
+      minWidth: "100px",
+      minHeight: "40px"
+    },
+    onmouseover: `this.style.backgroundColor='${attributes.hoverColor}'; this.style.color='${attributes.hoverTextColor}';`,
+    onmouseout: `this.style.backgroundColor='${attributes.backgroundColor}'; this.style.color='${attributes.textColor}';`,
+    onmousedown: `this.style.backgroundColor='${attributes.activeColor}'; this.style.color='${attributes.activeTextColor}';`,
+    onmouseup: `this.style.backgroundColor='${attributes.hoverColor}'; this.style.color='${attributes.hoverTextColor}';`
   }, attributes.buttonText));
 }
 
@@ -223,7 +273,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzsubmit","version":"0.1.0","title":"PZ Submit","category":"peakforms","icon":"smiley","description":"Submit button.","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"myheader":{"type":"string"},"buttonText":{"type":"string","default":"Submit"},"backgroundColor":{"type":"string","default":"#0000ff"},"textColor":{"type":"string","default":"#ffffff"},"marginValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}},"paddingValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzsubmit","version":"0.1.0","title":"PZ Submit","category":"peakforms","icon":"smiley","description":"Submit button.","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"myheader":{"type":"string"},"buttonText":{"type":"string","default":"Submit"},"backgroundColor":{"type":"string","default":"#0000ff"},"textColor":{"type":"string","default":"#ffffff"},"marginValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}},"paddingValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}},"hoverColor":{"type":"string","default":"#0000ff"},"hoverTextColor":{"type":"string","default":"#ffffff"},"activeColor":{"type":"string","default":"#0000cc"},"activeTextColor":{"type":"string","default":"#ffffff"}}}');
 
 /***/ })
 
