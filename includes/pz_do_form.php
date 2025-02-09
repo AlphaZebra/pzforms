@@ -23,7 +23,14 @@ function isRussian($text) {
  */
 function do_form () {
 
-	// only check captcha if the form has a captcha
+	
+
+	// if marker exists in $_POST, then we need to de-escape it 
+	if( isset($_POST['marker']) ) {
+		$_POST['marker'] = json_decode(stripslashes($_POST['marker']));
+	}
+
+		// only check captcha if the form has a captcha
 	if( isset($_POST['captcha']) && $_POST['captcha'] == 'true' ) {
 		$captcha = new PeakForms_Captcha();
 
