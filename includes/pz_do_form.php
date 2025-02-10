@@ -127,15 +127,15 @@ function peakforms_plugin_action_links($links) {
     array_unshift($links, $settings_link);
     return $links;
 }
-add_filter('plugin_action_links_peakforms/peakforms.php', 'peakforms_plugin_action_links');
+add_filter('plugin_action_links_pzforms/pzforms.php', 'peakforms_plugin_action_links');
 
 /**
  * Add additional information to plugin listing
  */
 function peakforms_plugin_row_meta($links, $file) {
-    if ('peakforms/peakforms.php' === $file) {
+    if ('pzforms/pzforms.php' === $file) {
         $row_meta = array(
-            'custom_text' => '<span style="color: #555;">Thank you for using PeakForms!</span>'
+            'custom_text' => '<span style="color: #555;">Get started by clicking the settings link!</span>'
         );
         return array_merge($links, $row_meta);
     }

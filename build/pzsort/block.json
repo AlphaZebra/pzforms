@@ -32,7 +32,7 @@
     "question": {
       "type": "string"
     },
-    "slugName": {
+    "slug": {
       "type": "string",
       "default": "sorted-items"
     },

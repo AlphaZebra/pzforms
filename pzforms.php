@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Peakforms
+ * Plugin Name:       pzForms
  * Description:       Standalone block-based form builder.
  * Requires at least: 6.1
  * Requires PHP:      7.0
@@ -8,9 +8,9 @@
  * Author:            PeakZebra / Robert Richardson
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       peakforms
+ * Text Domain:       peakzebra
  *
- * @package Peakforms
+ * @package peakzebra
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -111,7 +111,7 @@ class MySettingsPage
         $this->options = get_option( 'peakforms_option_name' );
         ?>
         <div class="wrap">
-            <h1>Peakforms Settings</h1>
+            <h1>pzForms Settings</h1>
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
@@ -208,7 +208,7 @@ class MySettingsPage
      */
     public function print_section_info()
     {
-        print 'Enter Peakforms settings below:';
+        print 'Enter pzForms settings below:';
     }
 
     

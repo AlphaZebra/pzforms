@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.querySelector('form:has(input[name="formName"])');
   const itemsList = document.querySelector("#items-list");
+  const fieldName = itemsList.dataset.slug || "sorted_items"; // Fallback if slug not set
+
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -53,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       const hiddenInput = document.createElement("input");
       hiddenInput.type = "hidden";
-      hiddenInput.name = "sorted_items"; // We can hardcode this or make it configurable in block attributes
+      hiddenInput.name = fieldName;
       hiddenInput.value = JSON.stringify(sortedItems);
-      const existingInput = form.querySelector('input[name="sorted_items"]');
+      const existingInput = form.querySelector(`input[name="${fieldName}"]`);
       if (existingInput) {
         existingInput.remove();
       }

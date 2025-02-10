@@ -310,11 +310,14 @@ var __webpack_exports__ = {};
   !*** ./src/pztextfield/index.js ***!
   \**********************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/pztextfield/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/pztextfield/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/pztextfield/block.json");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/pztextfield/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/pztextfield/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/pztextfield/block.json");
+
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -343,15 +346,73 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
+  icon: {
+    src: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+      version: "1.1",
+      id: "Icons",
+      xmlns: "http://www.w3.org/2000/svg",
+      xmlnsXlink: "http://www.w3.org/1999/xlink",
+      viewBox: "0 0 32 32",
+      xmlSpace: "preserve",
+      width: "800px",
+      height: "800px"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+      id: "SVGRepo_bgCarrier",
+      strokeWidth: "0"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+      id: "SVGRepo_tracerCarrier",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", {
+      id: "SVGRepo_iconCarrier"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, `.st0 {fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}`), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("rect", {
+      x: "3",
+      y: "12",
+      className: "st0",
+      width: "26",
+      height: "10"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+      className: "st0",
+      x1: "6",
+      y1: "15",
+      x2: "10",
+      y2: "15"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+      className: "st0",
+      x1: "8",
+      y1: "19",
+      x2: "8",
+      y2: "15"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+      className: "st0",
+      x1: "11",
+      y1: "8",
+      x2: "15",
+      y2: "8"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+      className: "st0",
+      x1: "11",
+      y1: "26",
+      x2: "15",
+      y2: "26"
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("line", {
+      className: "st0",
+      x1: "13",
+      y1: "26",
+      x2: "13",
+      y2: "8"
+    }))),
+    foreground: "#0693e3"
+  },
   /**
    * @see ./edit.js
    */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_1__["default"],
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   /**
    * @see ./save.js
    */
-  save: _save__WEBPACK_IMPORTED_MODULE_2__["default"]
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 })();
 
