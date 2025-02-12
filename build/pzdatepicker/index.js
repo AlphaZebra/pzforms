@@ -228,7 +228,7 @@ module.exports = window["wp"]["i18n"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzdatepicker","version":"0.1.0","title":"Peakforms Datepicker","category":"widgets","icon":"smiley","description":"Datepicker form field.","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Select a date"},"id":{"type":"string","default":""},"slug":{"type":"string","default":""},"marginValues":{"type":"object","default":{"top":0,"right":0,"bottom":0,"left":0}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzdatepicker","version":"0.1.0","title":"Peakforms Datepicker","category":"peakzebra","icon":"smiley","description":"Datepicker form field.","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Select a date"},"id":{"type":"string","default":""},"slug":{"type":"string","default":""},"marginValues":{"type":"object","default":{"top":0,"right":0,"bottom":0,"left":0}}}}');
 
 /***/ })
 

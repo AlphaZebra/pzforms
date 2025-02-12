@@ -4,14 +4,14 @@
   "name": "peakforms/pzradio",
   "version": "0.1.0",
   "title": "Peakforms Radio",
-  "category": "widgets",
+  "category": "peakzebra",
   "icon": "smiley",
   "description": "Radio button form field.",
   "example": {},
   "supports": {
     "html": false
   },
-  "textdomain": "peakforms",
+  "textdomain": "peakzebra",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

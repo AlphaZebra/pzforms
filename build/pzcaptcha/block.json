@@ -4,7 +4,7 @@
   "name": "peakforms/pzcaptcha",
   "version": "0.1.0",
   "title": "Peakforms Captcha",
-  "category": "widgets",
+  "category": "peakzebra",
   "icon": "shield",
   "description": "Adds a reCAPTCHA challenge to your form",
   "example": {},

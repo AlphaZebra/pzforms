@@ -52,13 +52,7 @@ function Edit(props) {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "Configuration"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-    label: "Required",
-    checked: attributes.required,
-    onChange: value => setAttributes({
-      required: value
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: "Rows",
     value: attributes.rows,
     onChange: value => setAttributes({
@@ -73,7 +67,7 @@ function Edit(props) {
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "Field prompts"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-    label: "Prompt displayed inside field",
+    label: "Prompt displayed for field",
     value: attributes.prompt,
     onChange: value => setAttributes({
       prompt: value
@@ -132,7 +126,6 @@ function Edit(props) {
   }, " *")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextareaControl, {
     id: attributes.id,
     name: attributes.name,
-    label: attributes.prompt,
     rows: attributes.rows,
     cols: attributes.cols
   })));
@@ -350,7 +343,7 @@ module.exports = window["wp"]["element"];
   \***********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pztextarea","version":"0.1.0","title":"Peakforms Textarea","category":"widgets","icon":"smiley","description":"A textarea field for Peakforms","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Value"},"id":{"type":"string","default":"some1"},"name":{"type":"string"},"backgroundColor":{"type":"string","default":"white"},"loadCurrent":{"type":"boolean","default":false},"required":{"type":"boolean","default":false},"rows":{"type":"string","default":"4"},"cols":{"type":"string","default":"80"},"marginValues":{"type":"object","default":{"top":"0","right":"0","bottom":"0","left":"0"}},"paddingValues":{"type":"object","default":{"top":"0","right":"0","bottom":"0","left":"0"}},"showAsterisk":{"type":"boolean","default":false}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pztextarea","version":"0.1.0","title":"Peakforms Textarea","category":"peakzebra","icon":"smiley","description":"A textarea field for Peakforms","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Value"},"id":{"type":"string","default":"some1"},"name":{"type":"string"},"backgroundColor":{"type":"string","default":"white"},"loadCurrent":{"type":"boolean","default":false},"required":{"type":"boolean","default":false},"rows":{"type":"string","default":"4"},"cols":{"type":"string","default":"80"},"marginValues":{"type":"object","default":{"top":"0","right":"0","bottom":"0","left":"0"}},"paddingValues":{"type":"object","default":{"top":"0","right":"0","bottom":"0","left":"0"}},"showAsterisk":{"type":"boolean","default":false}}}');
 
 /***/ })
 

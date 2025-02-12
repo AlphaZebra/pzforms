@@ -44,6 +44,22 @@ function peakforms_register_blocks() {
 }
 add_action( 'init', 'peakforms_register_blocks' );
 
+// create PeakZebra block category
+function filter_block_categories( $block_categories, $editor_context ) {
+    array_push(
+        $block_categories,
+        array(
+            'slug'  => 'peakzebra',
+            'title' => __( 'PeakZebra', 'peakzebra' ),
+            'icon'  => null,
+        )
+    );
+    return $block_categories;
+}
+add_filter( 'block_categories_all', 'filter_block_categories', 10, 2 );
+
+
+
 // create a new post type called "peakfunctions"
 function create_peakfunctions_post_type() {
 	register_post_type( 'peakfunctions',

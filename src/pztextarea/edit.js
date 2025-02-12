@@ -33,11 +33,6 @@ export default function Edit(props) {
 		<div {...useBlockProps()}>
 			<InspectorControls>
 				<PanelBody title="Configuration">
-					<CheckboxControl
-						label="Required"
-						checked={attributes.required}
-						onChange={(value) => setAttributes({ required: value })}
-					/>
 					<TextControl
 						label="Rows"
 						value={attributes.rows}
@@ -51,7 +46,7 @@ export default function Edit(props) {
 				</PanelBody>
 				<PanelBody title="Field prompts">
 					<TextControl
-						label="Prompt displayed inside field"
+						label="Prompt displayed for field"
 						value={attributes.prompt}
 						onChange={(value) => setAttributes({ prompt: value })}
 					/>
@@ -107,7 +102,6 @@ export default function Edit(props) {
 				<TextareaControl
 					id={attributes.id}
 					name={attributes.name}
-					label={attributes.prompt}
 					rows={attributes.rows}
 					cols={attributes.cols}
 				/>

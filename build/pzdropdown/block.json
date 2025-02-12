@@ -4,7 +4,7 @@
   "name": "peakforms/pzdropdown",
   "version": "0.1.0",
   "title": "Peakforms Dropdown",
-  "category": "widgets",
+  "category": "peakzebra",
   "icon": "smiley",
   "description": "Dropdown form field.",
   "example": {},

@@ -4,14 +4,14 @@
   "name": "peakforms/pzstateselect",
   "version": "0.1.0",
   "title": "Peakforms State Select",
-  "category": "widgets",
+  "category": "peakzebra",
   "icon": "smiley",
   "description": "A state select field for Peakforms",
   "example": {},
   "supports": {
     "html": false
   },
-  "textdomain": "peakforms",
+  "textdomain": "peakzebra",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

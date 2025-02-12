@@ -38,7 +38,7 @@ export default function Edit(props) {
 						onChange={(value) => setAttributes({ errorURL: value })}
 					/>
 					<p>
-						Set email address to send form submissions to in the Peakforms
+						Set email address to send form submissions to in the PeakZebra
 						settings page.
 					</p>
 					<TextControl
@@ -49,7 +49,7 @@ export default function Edit(props) {
 				</PanelBody>
 			</InspectorControls>
 			<div style={{ borderStyle: "dashed" }}>
-				<form>
+				<form className="form-style-1">
 					<InnerBlocks />
 				</form>
 			</div>

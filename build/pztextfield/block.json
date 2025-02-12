@@ -4,14 +4,14 @@
   "name": "peakforms/pztextfield",
   "version": "0.1.0",
   "title": "PZ Text Field",
-  "category": "peakforms",
+  "category": "peakzebra",
   "icon": "smiley",
   "description": "Text input field.",
   "example": {},
   "supports": {
     "html": false
   },
-  "textdomain": "peakforms",
+  "textdomain": "peakzebra",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

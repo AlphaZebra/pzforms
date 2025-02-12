@@ -4,7 +4,7 @@
 	"name": "peakforms/pzdatepicker",
 	"version": "0.1.0",
 	"title": "Peakforms Datepicker",
-	"category": "widgets",
+	"category": "peakzebra",
 	"icon": "smiley",
 	"description": "Datepicker form field.",
 	"example": {},

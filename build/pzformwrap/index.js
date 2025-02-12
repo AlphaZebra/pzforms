@@ -58,7 +58,7 @@ function Edit(props) {
     onChange: value => setAttributes({
       errorURL: value
     })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Set email address to send form submissions to in the Peakforms settings page."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Set email address to send form submissions to in the PeakZebra settings page."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
     label: "Name of optional post submission function",
     value: attributes.phpFunctionName,
     onChange: value => setAttributes({
@@ -68,7 +68,9 @@ function Edit(props) {
     style: {
       borderStyle: "dashed"
     }
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks, null))));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
+    className: "form-style-1"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks, null))));
 }
 
 /***/ }),
@@ -328,7 +330,7 @@ module.exports = window["wp"]["i18n"];
   \***********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzformwrap","version":"0.1.0","title":"PZ Form Wrap","category":"peakforms","icon":"smiley","description":"Wraps a form in a container.","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"formName":{"type":"string","default":"Value"},"phpFunctionName":{"type":"string","default":""},"errorURL":{"type":"string","default":"/error/"},"successURL":{"type":"string","default":"/"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzformwrap","version":"0.1.0","title":"PZ Form Wrap","category":"peakzebra","icon":"smiley","description":"Wraps a form in a container.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"formName":{"type":"string","default":"Value"},"phpFunctionName":{"type":"string","default":""},"errorURL":{"type":"string","default":"/error/"},"successURL":{"type":"string","default":"/"}}}');
 
 /***/ })
 

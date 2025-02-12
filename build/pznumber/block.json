@@ -4,14 +4,14 @@
   "name": "peakforms/pznumber",
   "version": "0.1.0",
   "title": "PZ Number Field",
-  "category": "peakforms",
+  "category": "peakzebra",
   "icon": "calculator",
   "description": "Number input field.",
   "example": {},
   "supports": {
     "html": false
   },
-  "textdomain": "peakforms",
+  "textdomain": "peakzebra",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

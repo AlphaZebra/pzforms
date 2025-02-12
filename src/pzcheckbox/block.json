@@ -4,7 +4,7 @@
 	"name": "peakforms/pzcheckbox",
 	"version": "0.1.0",
 	"title": "Peakforms Checkbox",
-	"category": "widgets",
+	"category": "peakzebra",
 	"icon": "smiley",
 	"description": "Peakforms Checkbox.",
 	"example": {},

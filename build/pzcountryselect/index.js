@@ -1288,7 +1288,7 @@ module.exports = window["wp"]["i18n"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzcountryselect","version":"0.1.0","title":"Peakforms Country Select","category":"widgets","icon":"smiley","description":"Peakforms Country Select","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Value"},"id":{"type":"string"},"name":{"type":"string"},"siteURL":{"type":"string"},"marginValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}},"backgroundColor":{"type":"string"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzcountryselect","version":"0.1.0","title":"Peakforms Country Select","category":"peakzebra","icon":"smiley","description":"Peakforms Country Select","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Value"},"id":{"type":"string"},"name":{"type":"string"},"siteURL":{"type":"string"},"marginValues":{"type":"object","default":{"top":"20px","left":"0px","right":"0px","bottom":"20px"}},"backgroundColor":{"type":"string"}}}');
 
 /***/ })
 
