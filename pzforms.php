@@ -4,7 +4,7 @@
  * Description:       Standalone block-based form builder.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.1.0
+ * Version:           1.0.0
  * Author:            PeakZebra / Robert Richardson
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -22,10 +22,6 @@ require plugin_dir_path(__FILE__) . 'includes/class-peakforms-captcha.php';
 //include the pz_do_form.php file
 require_once( plugin_dir_path( __FILE__ ) . 'includes/pz_do_form.php' );
 
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
 
 /**
  * Registers all blocks within the plugin.
@@ -62,6 +58,9 @@ add_filter( 'block_categories_all', 'filter_block_categories', 10, 2 );
 
 // create a new post type called "peakfunctions"
 function create_peakfunctions_post_type() {
+	if (!current_user_can('manage_options')) {
+		return;
+	}
 	register_post_type( 'peakfunctions',
 		array(
 			'labels' => array(
