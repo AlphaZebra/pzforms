@@ -8,51 +8,46 @@ import { __ } from "@wordpress/i18n";
 import "./editor.scss";
 
 import {
-	useBlockProps,
-	InnerBlocks,
-	InspectorControls,
+  useBlockProps,
+  InnerBlocks,
+  InspectorControls,
 } from "@wordpress/block-editor";
 import { PanelBody, TextControl } from "@wordpress/components";
 
 export default function Edit(props) {
-	const { attributes, setAttributes } = props;
+  const { attributes, setAttributes } = props;
 
-	return (
-		<div {...useBlockProps()}>
-			<InspectorControls>
-				<PanelBody title="Form info">
-					<TextControl
-						label="Unique form id"
-						value={attributes.formName}
-						onChange={(value) => setAttributes({ formName: value })}
-					/>
+  return (
+    <div {...useBlockProps()}>
+      <InspectorControls>
+        <PanelBody title="Form info">
+          <TextControl
+            label="Unique form id"
+            value={attributes.formName}
+            onChange={(value) => setAttributes({ formName: value })}
+          />
 
-					<TextControl
-						label="redirect here after submit"
-						value={attributes.successURL}
-						onChange={(value) => setAttributes({ successURL: value })}
-					/>
-					<TextControl
-						label="redirect here on error"
-						value={attributes.errorURL}
-						onChange={(value) => setAttributes({ errorURL: value })}
-					/>
-					<p>
-						Set email address to send form submissions to in the PeakZebra
-						settings page.
-					</p>
-					<TextControl
-						label="Name of optional post submission function"
-						value={attributes.phpFunctionName}
-						onChange={(value) => setAttributes({ phpFunctionName: value })}
-					/>
-				</PanelBody>
-			</InspectorControls>
-			<div style={{ borderStyle: "dashed" }}>
-				<form className="form-style-1">
-					<InnerBlocks />
-				</form>
-			</div>
-		</div>
-	);
+          <TextControl
+            label="redirect here after submit"
+            value={attributes.successURL}
+            onChange={(value) => setAttributes({ successURL: value })}
+          />
+          <TextControl
+            label="redirect here on error"
+            value={attributes.errorURL}
+            onChange={(value) => setAttributes({ errorURL: value })}
+          />
+          <p>
+            Set email address to send form submissions to in the PeakZebra
+            settings page.
+          </p>
+        </PanelBody>
+      </InspectorControls>
+      <div style={{ borderStyle: "dashed" }}>
+        <form className="form-style-1">
+          <InnerBlocks />
+        </form>
+      </div>
+    </div>
+  );
 }

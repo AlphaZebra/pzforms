@@ -20,12 +20,13 @@
       "type": "string",
       "default": "Value"
     },
-    "id": {
+    "textarea_id": {
       "type": "string",
-      "default": "some1"
+      "default": "textarea_id"
     },
-    "name": {
-      "type": "string"
+    "textarea_name": {
+      "type": "string",
+      "default": "textarea_name"
     },
     "backgroundColor": {
       "type": "string",

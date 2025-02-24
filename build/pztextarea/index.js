@@ -77,16 +77,16 @@ function Edit(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
           label: "Unique name",
           help: "No spaces.",
-          value: attributes.name ? attributes.name : attributes.field,
+          value: attributes.textarea_name ? attributes.textarea_name : attributes.field,
           onChange: value => setAttributes({
-            name: value
+            textarea_name: value
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
           label: "Unique id",
           help: "No spaces.",
-          value: attributes.id,
+          value: attributes.textarea_id,
           onChange: value => setAttributes({
-            id: value
+            textarea_id: value
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CheckboxControl, {
           label: "Required",
@@ -175,8 +175,8 @@ function save({
         for: attributes.id,
         children: attributes.prompt
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
-        id: attributes.id,
-        name: attributes.name,
+        id: attributes.textarea_id,
+        name: attributes.textarea_name,
         rows: attributes.rows,
         cols: attributes.cols
       })]
@@ -197,8 +197,8 @@ function save({
           children: " *"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
-        id: attributes.id,
-        name: attributes.name,
+        id: attributes.textarea_id,
+        name: attributes.textarea_name,
         rows: attributes.rows,
         cols: attributes.cols,
         required: true
@@ -265,7 +265,7 @@ module.exports = window["wp"]["element"];
   \***********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pztextarea","version":"0.1.0","title":"Peakforms Textarea","category":"peakzebra","icon":"smiley","description":"A textarea field for Peakforms","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Value"},"id":{"type":"string","default":"some1"},"name":{"type":"string"},"backgroundColor":{"type":"string","default":"white"},"loadCurrent":{"type":"boolean","default":false},"required":{"type":"boolean","default":false},"rows":{"type":"string","default":"4"},"cols":{"type":"string","default":"80"},"marginValues":{"type":"object","default":{"top":"0","right":"0","bottom":"0","left":"0"}},"paddingValues":{"type":"object","default":{"top":"0","right":"0","bottom":"0","left":"0"}},"showAsterisk":{"type":"boolean","default":false}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pztextarea","version":"0.1.0","title":"Peakforms Textarea","category":"peakzebra","icon":"smiley","description":"A textarea field for Peakforms","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Value"},"textarea_id":{"type":"string","default":"textarea_id"},"textarea_name":{"type":"string","default":"textarea_name"},"backgroundColor":{"type":"string","default":"white"},"loadCurrent":{"type":"boolean","default":false},"required":{"type":"boolean","default":false},"rows":{"type":"string","default":"4"},"cols":{"type":"string","default":"80"},"marginValues":{"type":"object","default":{"top":"0","right":"0","bottom":"0","left":"0"}},"paddingValues":{"type":"object","default":{"top":"0","right":"0","bottom":"0","left":"0"}},"showAsterisk":{"type":"boolean","default":false}}}');
 
 /***/ })
 

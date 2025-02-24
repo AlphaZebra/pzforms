@@ -16,16 +16,17 @@
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "attributes": {
-    "prompt": {
+    "textPrompt": {
       "type": "string",
       "default": "Value"
     },
-    "id": {
+    "textfield_id": {
       "type": "string",
-      "default": "some1"
+      "default": "textfield_id"
     },
-    "name": {
-      "type": "string"
+    "textfield_name": {
+      "type": "string",
+      "default": "textfield_name"
     },
     "width": {
       "type": "string",

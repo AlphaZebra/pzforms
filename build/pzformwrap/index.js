@@ -61,12 +61,6 @@ function Edit(props) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
           children: "Set email address to send form submissions to in the PeakZebra settings page."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-          label: "Name of optional post submission function",
-          value: attributes.phpFunctionName,
-          onChange: value => setAttributes({
-            phpFunctionName: value
-          })
         })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
