@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "peakforms/pznonce",
+  "version": "0.1.0",
+  "title": "PZ Nonce",
+  "category": "peakzebra",
+  "icon": "smiley",
+  "description": "Security block for nonce.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "peakzebra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "prompt": {
+      "type": "string",
+      "default": "Value"
+    },
+    "id": {
+      "type": "string",
+      "default": "some1"
+    },
+    "name": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string",
+      "default": "100%"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "multiline": {
+      "type": "boolean",
+      "default": false
+    },
+    "marginValues": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      }
+    },
+    "paddingValues": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      }
+    },
+    "showAsterisk": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

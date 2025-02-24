@@ -21,28 +21,35 @@ function isRussian($text) {
 /**
  * Form handler
  */
-function do_form () {
+function do_form() {
+    // First, verify the nonce
+    if (!isset($_POST['pzforms_nonce'])) {
+        echo 'nonce failed 1';
+		
+        exit;
+    }
+    if(  !wp_verify_nonce(wp_unslash($_POST['pzforms_nonce']), 'do-form')) {
+        echo 'nonce failed';
+        exit;
+    }
 
 	
-
 	// if marker exists in $_POST, then we need to de-escape it 
 	if( isset($_POST['marker']) ) {
-		$_POST['marker'] = json_decode(stripslashes($_POST['marker']));
+		$_POST['marker'] = json_decode(wp_unslash($_POST['marker']));
 	}
 
-		// only check captcha if the form has a captcha
+	// only check captcha if the form has a captcha
 	if( isset($_POST['captcha']) && $_POST['captcha'] == 'true' ) {
 		$captcha = new PeakForms_Captcha();
 
 	$errors = array();
 	if( $errors = $captcha->validate_captcha( $errors, $_POST ) ) {
-
-			$errorURL = isset($_POST['errorURL']) ? $_POST['errorURL'] : '';
+			$errorURL = isset($_POST['errorURL']) ? $errorURL : '';
 			wp_redirect( $errorURL || '/' );
 			exit;
 		}
 	}
-	
 
 	// add hook for user customization
 	$_POST = apply_filters( 'pz_pre_form_processing', $_POST );
@@ -58,38 +65,18 @@ function do_form () {
 	// Get rid of the g-recaptcha-response field
 	unset($_POST['g-recaptcha-response']);
 	
-	// if the phpFunctionName is set, and it's not empty, 
-	// then we need to evaluate the function
-
-	if( isset($_POST['phpFunctionName']) && $_POST['phpFunctionName'] != '' ) {
-		// find the post in the database where the post title matches $phpFunctionName
-
-		// Or get_posts method
-		$posts = get_posts(array(
-			'post_type' => 'peakfunctions',
-			'numberposts' => -1,
-			'post_status' => 'publish',
-			'title' => $_POST['phpFunctionName']		
-		));
-
-		// if there are no posts, return an error
-		if( empty($posts) ) {
-			wp_redirect( $errorURL || '/' );
-			exit;
-		} else {
-			// evaluate the function
-			eval( $posts[0]->post_content );
-		}
-	}
-
+	
 	// send an email if the form included a send-to address
 	if( isset($email) && $email != '' ) {
 		$message = json_encode( $_POST );
-		$subject = "Form data from " . $_POST['formName'];
+		$subject = "Form data from " . $formName;
 		wp_mail( $email, $subject, $message );
 	}
 
-	hook_and_redirect( 0, $_POST['successURL'] );
+	
+	
+
+	hook_and_redirect( 0, $successURL );
 
 	}  
 

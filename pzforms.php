@@ -8,19 +8,23 @@
  * Author:            PeakZebra / Robert Richardson
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       peakzebra
+ * Text Domain:       pzforms
  *
- * @package peakzebra
+ * @package pzforms
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+
+
 require plugin_dir_path(__FILE__) . 'includes/class-peakforms-captcha.php';
 
 //include the pz_do_form.php file
 require_once( plugin_dir_path( __FILE__ ) . 'includes/pz_do_form.php' );
+
+// require_once plugin_dir_path(__FILE__) . 'includes/pz_enqueue_nonce.php';
 
 
 /**
@@ -34,10 +38,14 @@ function peakforms_register_blocks() {
 	
 	foreach ( $block_folders as $block_folder ) {
 		if ( file_exists( $block_folder . '/block.json' ) ) {
-			register_block_type( $block_folder );
+			if( register_block_type( $block_folder ) == false ) {
+				echo( esc_html('Failed to register block type: ' . $block_folder) );
+                exit;
+			}
 		}
 	}
 }
+
 add_action( 'init', 'peakforms_register_blocks' );
 
 // create PeakZebra block category
@@ -46,7 +54,7 @@ function filter_block_categories( $block_categories, $editor_context ) {
         $block_categories,
         array(
             'slug'  => 'peakzebra',
-            'title' => __( 'PeakZebra', 'peakzebra' ),
+            'title' => __( 'PeakZebra', 'pzforms' ),
             'icon'  => null,
         )
     );
@@ -64,16 +72,16 @@ function create_peakfunctions_post_type() {
 	register_post_type( 'peakfunctions',
 		array(
 			'labels' => array(
-				'name' => __( 'Peak Functions' ),
-				'singular_name' => __( 'Peak Function' ),
-				'add_new' => __( 'Add New' ),
-				'add_new_item' => __( 'Add New Peak Function' ),
-				'edit_item' => __( 'Edit Peak Function' ),
-				'new_item' => __( 'New Peak Function' ),
-				'view_item' => __( 'View Peak Function' ),
-				'search_items' => __( 'Search Peak Functions' ),
-				'not_found' => __( 'No peak functions found' ),
-				'not_found_in_trash' => __( 'No peak functions found in trash' )
+				'name' => __( 'Peak Functions', 'pzforms' ),
+				'singular_name' => __( 'Peak Function', 'pzforms'    ),
+				'add_new' => __( 'Add New', 'pzforms' ),
+				'add_new_item' => __( 'Add New Peak Function', 'pzforms' ),
+				'edit_item' => __( 'Edit Peak Function', 'pzforms' ),
+				'new_item' => __( 'New Peak Function', 'pzforms' ),
+				'view_item' => __( 'View Peak Function', 'pzforms' ),
+				'search_items' => __( 'Search Peak Functions', 'pzforms' ),
+				'not_found' => __( 'No peak functions found', 'pzforms' ),
+				'not_found_in_trash' => __( 'No peak functions found in trash', 'pzforms' )
 			),
 			'public' => true,
 			'show_ui' => true,
@@ -126,31 +134,43 @@ class MySettingsPage
         $this->options = get_option( 'peakforms_option_name' );
         ?>
         <div class="wrap">
-            <h1>pzForms Settings</h1>
+            <h1><?php echo esc_html__('pzForms Settings', 'pzforms'); ?></h1>
             <form method="post" action="options.php">
             <?php
-                // This prints out all hidden setting fields
+                wp_nonce_field('peakforms_settings_nonce', 'peakforms_nonce');
                 settings_fields( 'peakforms_option_group' );
                 do_settings_sections( 'my-setting-admin' );
                 submit_button();
             ?>
             </form>
-            <h2>Getting Started</h2>
-            <p>Welcome to Peakforms! This plugin is designed to help you create beautiful, responsive forms using the WordPress block editor and blocks that implement each
-                form field type. Follow the steps below to get started:</p>
+            <h2><?php echo esc_html__('Getting Started', 'pzforms'); ?></h2>
+            <p><?php echo esc_html__('Welcome to Peakforms! This plugin is designed to help you create beautiful, responsive forms using the WordPress block editor and blocks that implement each form field type. Follow the steps below to get started:', 'pzforms'); ?></p>
             <ol>
-                <li>Set the configurations above.</li>
-                <li>(coming soon) The encryption key is used to encrypt any local JavaScript you create to verify or process data entered in some fields.</li>    
-                <li>The email field lets you enter the email address where form submissions will be sent.</li>
-                <li>Create a new post or page.</li>
-                <li>Add a new PZ Form Wrapper block to the page where you'd like the form to appear.</li>
-                <li>Inside the dotted lines that mark the area of the PZ Form Wrapper block, add field blocks.</li>
-                <li>You can of course add any field blocks as you'd like, but pretty much any other block as well.</li>
-                <li>Configure the settings for each.</li>
-                <li>Repeat until the form is the way you want it.</li>
+                <li><?php echo esc_html__('Set the configurations above.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('(coming soon) The encryption key is used to encrypt any local JavaScript you create to verify or process data entered in some fields.', 'pzforms'); ?></li>    
+                <li><?php echo esc_html__('The email field lets you enter the email address where form submissions will be sent.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('Create a new post or page.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('Add a new PZ Form Wrapper block to the page where you\'d like the form to appear.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('Inside the dotted lines that mark the area of the PZ Form Wrapper block, add field blocks.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('You can of course add any field blocks as you\'d like, but pretty much any other block as well.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('Configure the settings for each.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('Repeat until the form is the way you want it.', 'pzforms'); ?></li>
             </ol>
-            <h2>Creating Functions</h2>
-            <p>Functions are used to process data on submission. They are created in the <a href="<?php echo admin_url( 'edit.php?post_type=peakfunctions' ); ?>">Peak Functions</a> post type.</p>
+            <h2><?php echo esc_html__('Creating Functions', 'pzforms'); ?></h2>
+            <p>
+                <?php 
+                echo wp_kses(
+                    sprintf(
+                        /* translators: %s: URL to Peak Functions admin page */
+                        __('Functions are used to process data on submission. They are created in the <a href="%s">Peak Functions</a> post type.', 'pzforms'),
+                        esc_url(admin_url('edit.php?post_type=peakfunctions'))
+                    ),
+                    array(
+                        'a' => array('href' => array())
+                    )
+                );
+                ?>
+            </p>
         </div>
         <?php
     }
@@ -163,7 +183,7 @@ class MySettingsPage
         register_setting(
             'peakforms_option_group', // Option group
             'peakforms_option_name', // Option name
-            array( $this, 'sanitize' ) // Sanitize
+            array('MySettingsPage', 'sanitize') // Callback
         );
 
         add_settings_section(
@@ -205,16 +225,31 @@ class MySettingsPage
      *
      * @param array $input Contains all settings fields as array keys
      */
-    public function sanitize( $input )
+    public static function sanitize( $input )
     {
+        // Verify nonce
+        if (!isset($_POST['peakforms_nonce']) || !wp_verify_nonce(wp_unslash($_POST['peakforms_nonce']), 'peakforms_settings_nonce')) {
+            add_settings_error('peakforms_messages', 'peakforms_message', __('Security check failed.', 'pzforms'), 'error');
+            return get_option('peakforms_option_name'); // Return existing options
+        }
+
+        // Verify user capabilities
+        if (!current_user_can('manage_options')) {
+            add_settings_error('peakforms_messages', 'peakforms_message', __('You do not have sufficient permissions.', 'pzforms'), 'error');
+            return get_option('peakforms_option_name'); // Return existing options
+        }
+
         $new_input = array();
 
-        if( isset( $input['peakforms_key'] ) )
-            $new_input['peakforms_key'] = sanitize_text_field( $input['peakforms_key'] );
-        if( isset( $input['peakforms_email'] ) )
-            $new_input['peakforms_email'] = sanitize_text_field( $input['peakforms_email'] );
-        if( isset( $input['peakforms_recaptcha_secret_key'] ) )
-            $new_input['peakforms_recaptcha_secret_key'] = sanitize_text_field( $input['peakforms_recaptcha_secret_key'] );
+        if(isset($input['peakforms_key'])) {
+            $new_input['peakforms_key'] = sanitize_text_field($input['peakforms_key']);
+        }
+        if(isset($input['peakforms_email'])) {
+            $new_input['peakforms_email'] = sanitize_email($input['peakforms_email']);
+        }
+        if(isset($input['peakforms_recaptcha_secret_key'])) {
+            $new_input['peakforms_recaptcha_secret_key'] = sanitize_text_field($input['peakforms_recaptcha_secret_key']);
+        }
         return $new_input;
     }
 

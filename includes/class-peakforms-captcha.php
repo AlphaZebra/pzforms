@@ -20,8 +20,6 @@ class PeakForms_Captcha {
             ? $options['peakforms_recaptcha_secret_key'] 
             : '';
         
-        error_log('Secret key retrieved: ' . (empty($this->secret_key) ? 'EMPTY' : 'NOT EMPTY'));
-        
         // Add filter to validate form submission
         add_filter('peakforms_validate_submission', array($this, 'validate_captcha'), 10, 2);
     }
@@ -34,23 +32,16 @@ class PeakForms_Captcha {
      * @return array Updated validation errors
      */
     public function validate_captcha($errors, $data) {
-        error_log('Starting reCAPTCHA validation');
-        error_log('All POST data: ' . print_r($_POST, true));
-        error_log('Data passed to validate_captcha: ' . print_r($data, true));
-        
         if (empty($data['g-recaptcha-response'])) {
-            error_log('No reCAPTCHA response found in data');
-            $errors[] = __('Please complete the reCAPTCHA challenge.', 'peakforms');
+            $errors[] = __('Please complete the reCAPTCHA challenge.', 'pzforms');
             return $errors;
         }
 
-        // Log the exact values we're about to send
         $request_body = array(
-            'secret' => $this->secret_key,
+            'secret' => sanitize_text_field($this->secret_key),
             'response' => sanitize_text_field($data['g-recaptcha-response']),
-            'remoteip' => $_SERVER['REMOTE_ADDR']
+            'remoteip' => isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : ''
         );
-        error_log('Request body being sent to Google: ' . print_r($request_body, true));
 
         $response = wp_remote_post('https://www.google.com/recaptcha/api/siteverify', array(
             'body' => $request_body
@@ -58,21 +49,16 @@ class PeakForms_Captcha {
 
         // Check for API errors
         if (is_wp_error($response)) {
-            error_log('WP Error in reCAPTCHA verification: ' . $response->get_error_message());
-            $errors[] = __('Failed to verify reCAPTCHA response.', 'peakforms');
+            $errors[] = __('Failed to verify reCAPTCHA response.', 'pzforms');
             return $errors;
         }
 
         $body = wp_remote_retrieve_body($response);
         $result = json_decode($body, true);
 
-        error_log('Decoded response from Google: ' . print_r($result, true));
-
         // Validate the response
         if (empty($result['success'])) {
-            $errors[] = __('reCAPTCHA verification failed. Please try again.', 'peakforms');
-            $error_codes = isset($result['error-codes']) ? implode(', ', $result['error-codes']) : '';
-            error_log('reCAPTCHA verification failed. Error codes: ' . $error_codes);
+            $errors[] = __('reCAPTCHA verification failed. Please try again.', 'pzforms');
         }
 
         return $errors;
