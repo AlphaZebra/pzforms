@@ -73,7 +73,8 @@ function Edit(props) {
           value: attributes.name,
           onChange: value => setAttributes({
             name: value
-          })
+          }),
+          help: "Unique to this page. No spaces."
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CheckboxControl, {
           label: "Show Asterisk",
           checked: attributes.showAsterisk,

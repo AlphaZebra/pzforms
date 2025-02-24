@@ -6,15 +6,9 @@
  * and in the editor.
  */
 .form-style-1 input[type=checkbox] {
-  margin-top: 33px;
-  width: 30px !important;
-  height: 30px !important;
-}
-
-.form-style-1-checkbox {
-  margin-top: 35px !important;
-  margin-left: 10px !important;
-  display: inline-flex;
+  margin-top: 10px;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
