@@ -20,11 +20,13 @@
       "type": "string",
       "default": "Select a state"
     },
-    "id": {
-      "type": "string"
+    "state_id": {
+      "type": "string",
+      "default": "state"
     },
-    "name": {
-      "type": "string"
+    "state_name": {
+      "type": "string",
+      "default": "state"
     },
     "marginValues": {
       "type": "object",

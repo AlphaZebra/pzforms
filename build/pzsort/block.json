@@ -42,12 +42,13 @@
         ""
       ]
     },
-    "id": {
+    "sort_id": {
       "type": "string",
-      "default": "some1"
+      "default": "sort"
     },
-    "name": {
-      "type": "string"
+    "sort_name": {
+      "type": "string",
+      "default": "sort"
     },
     "loadCurrent": {
       "type": "boolean",

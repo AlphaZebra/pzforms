@@ -44,6 +44,12 @@ export default function Edit(props) {
         </PanelBody>
       </InspectorControls>
       <div style={{ borderStyle: "dashed" }}>
+        <p style={{ fontSize: "12px", marginLeft: "8px" }}>
+          Place form fields within the dotted border (that is, within the form
+          tag). For security, be sure to place a pznonce block somewhere within
+          the field. Every form must also include a pzsubmit block. Finally, be
+          sure to give a unique name to the form and each of the fields.
+        </p>
         <form className="form-style-1">
           <InnerBlocks />
         </form>

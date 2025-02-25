@@ -47,11 +47,11 @@ function Edit(props) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
           label: "Field variable name",
-          help: "Unique to this page. No spaces.",
-          value: attributes.name ? attributes.name : attributes.id,
+          help: "Unique to this page. No spaces. This is the name of the field in the form data when email is sent.",
+          value: attributes.email_name ? attributes.email_name : attributes.email_id,
           onChange: value => setAttributes({
-            name: value,
-            id: value
+            email_name: value,
+            email_id: value
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
           label: "Width",
@@ -97,8 +97,8 @@ function Edit(props) {
       },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
         type: "email",
-        id: attributes.id,
-        name: attributes.name,
+        id: attributes.email_id,
+        name: attributes.email_name,
         label: attributes.prompt,
         required: attributes.required && attributes.showAsterisk,
         style: {
@@ -233,7 +233,7 @@ module.exports = window["wp"]["i18n"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzemail","version":"0.1.0","title":"PZ Email Field","category":"peakzebra","icon":"email","description":"Email input field with validation.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"prompt":{"type":"string","default":"Email"},"id":{"type":"string","default":"email1"},"name":{"type":"string"},"width":{"type":"string","default":"100%"},"required":{"type":"boolean","default":false},"marginValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"paddingValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"showAsterisk":{"type":"boolean","default":false}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzemail","version":"0.1.0","title":"PZ Email Field","category":"peakzebra","icon":"email","description":"Email input field with validation.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"prompt":{"type":"string","default":"Email"},"email_id":{"type":"string","default":"email"},"email_name":{"type":"string","default":"email"},"width":{"type":"string","default":"100%"},"required":{"type":"boolean","default":false},"marginValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"paddingValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"showAsterisk":{"type":"boolean","default":false}}}');
 
 /***/ })
 

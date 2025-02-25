@@ -1,70 +1,70 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "peakforms/pzrange",
-	"version": "0.1.0",
-	"title": "PZ Range Slider",
-	"category": "peakzebra",
-	"icon": "slides",
-	"description": "Range slider input field.",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"textdomain": "peakzebra",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js",
-	"attributes": {
-		"prompt": {
-			"type": "string",
-			"default": "Select Value"
-		},
-		"id": {
-			"type": "string",
-			"default": "range1"
-		},
-		"name": {
-			"type": "string"
-		},
-		"width": {
-			"type": "string",
-			"default": "100%"
-		},
-		"required": {
-			"type": "boolean",
-			"default": false
-		},
-		"min": {
-			"type": "number",
-			"default": 0
-		},
-		"max": {
-			"type": "number",
-			"default": 100
-		},
-		"defaultValue": {
-			"type": "number",
-			"default": 50
-		},
-		"marginValues": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"bottom": "0px",
-				"left": "0px",
-				"right": "0px"
-			}
-		},
-		"paddingValues": {
-			"type": "object",
-			"default": {
-				"top": "0px",
-				"bottom": "0px",
-				"left": "0px",
-				"right": "0px"
-			}
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "peakforms/pzrange",
+  "version": "0.1.0",
+  "title": "PZ Range Slider",
+  "category": "peakzebra",
+  "icon": "slides",
+  "description": "Range slider input field.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "peakzebra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "prompt": {
+      "type": "string",
+      "default": "Select Value"
+    },
+    "range_id": {
+      "type": "string",
+      "default": "range"
+    },
+    "range_name": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string",
+      "default": "100%"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "min": {
+      "type": "number",
+      "default": 0
+    },
+    "max": {
+      "type": "number",
+      "default": 100
+    },
+    "defaultValue": {
+      "type": "number",
+      "default": 50
+    },
+    "marginValues": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      }
+    },
+    "paddingValues": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      }
+    }
+  }
 }

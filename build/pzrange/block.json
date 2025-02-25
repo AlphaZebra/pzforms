@@ -21,11 +21,11 @@
       "type": "string",
       "default": "Select Value"
     },
-    "id": {
+    "range_id": {
       "type": "string",
-      "default": "range1"
+      "default": "range"
     },
-    "name": {
+    "range_name": {
       "type": "string"
     },
     "width": {

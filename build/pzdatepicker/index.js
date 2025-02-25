@@ -69,17 +69,18 @@ function Edit(props) {
             prompt: value
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-          label: "Field ID",
-          value: attributes.id,
+          label: "Unique field id",
+          value: attributes.datepicker_id,
           onChange: value => setAttributes({
-            id: value
+            datepicker_id: value
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-          label: "Slug",
-          value: attributes.slug,
+          label: "Unique field name",
+          value: attributes.datepicker_name,
           onChange: value => setAttributes({
-            slug: value
-          })
+            datepicker_name: value
+          }),
+          help: "Unique to this page. No spaces. This is the name of the field in the form data when email is sent."
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: "Margin",
@@ -102,12 +103,12 @@ function Edit(props) {
         gap: "8px"
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-        htmlFor: attributes.id,
+        htmlFor: attributes.datepicker_id,
         children: attributes.prompt
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "date",
-        id: attributes.id,
-        name: attributes.id
+        id: attributes.datepicker_id,
+        name: attributes.datepicker_name
       })]
     })]
   });
@@ -157,12 +158,12 @@ function save({
       margin: `${attributes.marginValues.top}px ${attributes.marginValues.right}px ${attributes.marginValues.bottom}px ${attributes.marginValues.left}px`
     },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-      for: attributes.id,
+      for: attributes.datepicker_id,
       children: attributes.prompt
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
       type: "date",
-      id: attributes.id,
-      name: attributes.id
+      id: attributes.datepicker_id,
+      name: attributes.datepicker_name || "date"
     })]
   });
 }
@@ -235,7 +236,7 @@ module.exports = window["wp"]["i18n"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzdatepicker","version":"0.1.0","title":"Peakforms Datepicker","category":"peakzebra","icon":"smiley","description":"Datepicker form field.","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Select a date"},"id":{"type":"string","default":""},"slug":{"type":"string","default":""},"marginValues":{"type":"object","default":{"top":0,"right":0,"bottom":0,"left":0}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzdatepicker","version":"0.1.0","title":"Peakforms Datepicker","category":"peakzebra","icon":"smiley","description":"Datepicker form field.","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Select a date"},"datepicker_id":{"type":"string","help":"Unique to this page. No spaces.","default":"Value"},"datepicker_name":{"type":"string","help":"Unique to this page. No spaces."},"marginValues":{"type":"object","default":{"top":0,"right":0,"bottom":0,"left":0}}}}');
 
 /***/ })
 

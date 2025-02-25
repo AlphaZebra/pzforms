@@ -1,92 +1,93 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "peakforms/pzmulticheck",
-	"version": "0.1.0",
-	"title": "Peakforms Multi Check",
-	"category": "peakzebra",
-	"icon": "smiley",
-	"description": "Multi Check form field.",
-	"example": {},
-	"supports": {
-		"html": false
-	},
-	"textdomain": "peakzebra",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"attributes": {
-		"prompt": {
-			"type": "string",
-			"default": "Value"
-		},
-		"table": {
-			"type": "string",
-			"default": "person"
-		},
-		"field": {
-			"type": "string",
-			"default": "lastname"
-		},
-		"question": {
-			"type": "string"
-		},
-		"slug": {
-			"type": "string"
-		},
-		"answers": {
-			"type": "array",
-			"default": [""]
-		},
-		"id": {
-			"type": "string",
-			"default": "some1"
-		},
-		"name": {
-			"type": "string"
-		},
-		"loadCurrent": {
-			"type": "boolean",
-			"default": false
-		},
-		"required": {
-			"type": "boolean",
-			"default": false
-		},
-		"marginValues": {
-			"type": "object",
-			"default": {
-				"top": "50px",
-				"left": "10%",
-				"right": "10%",
-				"bottom": "50px"
-			}
-		},
-		"formStyle": {
-			"type": "string",
-			"default": "form-style-1"
-		},
-		"textColor": {
-			"type": "string"
-		},
-		"buttonTextColor": {
-			"type": "string",
-			"default": "#000000"
-		},
-		"buttonBackgroundColor": {
-			"type": "string",
-			"default": "#FFFFFF"
-		},
-		"redirectURL": {
-			"type": "string"
-		},
-		"errorURL": {
-			"type": "string",
-			"default": "/error/"
-		},
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "peakforms/pzmulticheck",
+  "version": "0.1.0",
+  "title": "Peakforms Multi Check",
+  "category": "peakzebra",
+  "icon": "smiley",
+  "description": "Multi Check form field.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "peakzebra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "prompt": {
+      "type": "string",
+      "default": "Value"
+    },
+    "table": {
+      "type": "string",
+      "default": "person"
+    },
+    "field": {
+      "type": "string",
+      "default": "lastname"
+    },
+    "question": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "answers": {
+      "type": "array",
+      "default": [""]
+    },
+    "multicheck_id": {
+      "type": "string",
+      "default": "multicheck"
+    },
+    "multicheck_name": {
+      "type": "string",
+      "default": "multicheck"
+    },
+    "loadCurrent": {
+      "type": "boolean",
+      "default": false
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "marginValues": {
+      "type": "object",
+      "default": {
+        "top": "50px",
+        "left": "10%",
+        "right": "10%",
+        "bottom": "50px"
+      }
+    },
+    "formStyle": {
+      "type": "string",
+      "default": "form-style-1"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "buttonTextColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "buttonBackgroundColor": {
+      "type": "string",
+      "default": "#FFFFFF"
+    },
+    "redirectURL": {
+      "type": "string"
+    },
+    "errorURL": {
+      "type": "string",
+      "default": "/error/"
+    },
 
-		"correctAnswer": { "type": "number", "default": "undefined" },
-		"shortName": { "type": "string", "default": "undefined" },
-		"priority": { "type": "string" }
-	}
+    "correctAnswer": { "type": "number", "default": "undefined" },
+    "shortName": { "type": "string", "default": "undefined" },
+    "priority": { "type": "string" }
+  }
 }

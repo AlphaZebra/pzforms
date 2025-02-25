@@ -23,6 +23,10 @@
       "type": "string",
       "default": "Submit"
     },
+    "buttonId": {
+      "type": "string",
+      "default": "submit"
+    },
     "backgroundColor": {
       "type": "string",
       "default": "#0000ff"

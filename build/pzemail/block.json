@@ -21,12 +21,13 @@
       "type": "string",
       "default": "Email"
     },
-    "id": {
+    "email_id": {
       "type": "string",
-      "default": "email1"
+      "default": "email"
     },
-    "name": {
-      "type": "string"
+    "email_name": {
+      "type": "string",
+      "default": "email"
     },
     "width": {
       "type": "string",

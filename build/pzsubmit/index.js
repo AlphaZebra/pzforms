@@ -52,7 +52,13 @@ function Edit(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)(),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Button id",
+        value: attributes.buttonId,
+        onChange: value => setAttributes({
+          buttonId: value
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Color settings"),
         initialOpen: false,
         colorSettings: [{
@@ -203,7 +209,7 @@ function save({
       paddingRight: attributes.paddingValues?.right || "0px"
     },
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-      id: "pzbutton",
+      id: attributes.buttonId,
       type: "submit",
       variant: "contained",
       size: "large",
@@ -281,7 +287,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzsubmit","version":"0.1.0","title":"PZ Submit","category":"peakzebra","icon":"smiley","description":"Submit button.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"myheader":{"type":"string"},"buttonText":{"type":"string","default":"Submit"},"backgroundColor":{"type":"string","default":"#0000ff"},"textColor":{"type":"string","default":"#ffffff"},"marginValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}},"paddingValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}},"hoverColor":{"type":"string","default":"#0000ff"},"hoverTextColor":{"type":"string","default":"#ffffff"},"activeColor":{"type":"string","default":"#0000cc"},"activeTextColor":{"type":"string","default":"#ffffff"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzsubmit","version":"0.1.0","title":"PZ Submit","category":"peakzebra","icon":"smiley","description":"Submit button.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"myheader":{"type":"string"},"buttonText":{"type":"string","default":"Submit"},"buttonId":{"type":"string","default":"submit"},"backgroundColor":{"type":"string","default":"#0000ff"},"textColor":{"type":"string","default":"#ffffff"},"marginValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}},"paddingValues":{"type":"object","default":{"top":"20px","left":"10px","right":"10px","bottom":"20px"}},"hoverColor":{"type":"string","default":"#0000ff"},"hoverTextColor":{"type":"string","default":"#ffffff"},"activeColor":{"type":"string","default":"#0000cc"},"activeTextColor":{"type":"string","default":"#ffffff"}}}');
 
 /***/ })
 

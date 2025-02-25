@@ -17,17 +17,21 @@ import { useBlockProps } from "@wordpress/block-editor";
  */
 
 export default function save({ attributes }) {
-	attributes.class = "form-style-1";
+  attributes.class = "form-style-1";
 
-	return (
-		<div
-			{...useBlockProps.save()}
-			style={{
-				margin: `${attributes.marginValues.top}px ${attributes.marginValues.right}px ${attributes.marginValues.bottom}px ${attributes.marginValues.left}px`,
-			}}
-		>
-			<label for={attributes.id}>{attributes.prompt}</label>
-			<input type="date" id={attributes.id} name={attributes.id} />
-		</div>
-	);
+  return (
+    <div
+      {...useBlockProps.save()}
+      style={{
+        margin: `${attributes.marginValues.top}px ${attributes.marginValues.right}px ${attributes.marginValues.bottom}px ${attributes.marginValues.left}px`,
+      }}
+    >
+      <label for={attributes.datepicker_id}>{attributes.prompt}</label>
+      <input
+        type="date"
+        id={attributes.datepicker_id}
+        name={attributes.datepicker_name || "date"}
+      />
+    </div>
+  );
 }

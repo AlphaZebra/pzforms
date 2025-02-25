@@ -23,6 +23,7 @@ export default function save({ attributes }) {
           {jsonAttributes}
         </pre>
       </div>
+
       <form
         action="/wp-admin/admin-post.php"
         method="POST"

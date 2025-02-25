@@ -40,12 +40,13 @@
         ""
       ]
     },
-    "id": {
+    "multicheck_id": {
       "type": "string",
-      "default": "some1"
+      "default": "multicheck"
     },
-    "name": {
-      "type": "string"
+    "multicheck_name": {
+      "type": "string",
+      "default": "multicheck"
     },
     "loadCurrent": {
       "type": "boolean",

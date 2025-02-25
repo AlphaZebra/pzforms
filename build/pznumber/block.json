@@ -20,12 +20,13 @@
       "type": "string",
       "default": "Number"
     },
-    "id": {
+    "number_id": {
       "type": "string",
-      "default": "number1"
+      "default": "number"
     },
-    "name": {
-      "type": "string"
+    "number_name": {
+      "type": "string",
+      "default": "number"
     },
     "width": {
       "type": "string",

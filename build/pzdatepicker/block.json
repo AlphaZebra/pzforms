@@ -20,13 +20,14 @@
       "type": "string",
       "default": "Select a date"
     },
-    "id": {
+    "datepicker_id": {
       "type": "string",
-      "default": ""
+      "help": "Unique to this page. No spaces.",
+      "default": "Value"
     },
-    "slug": {
+    "datepicker_name": {
       "type": "string",
-      "default": ""
+      "help": "Unique to this page. No spaces."
     },
     "marginValues": {
       "type": "object",

@@ -20,11 +20,14 @@
       "type": "string",
       "default": "Value"
     },
-    "id": {
-      "type": "string"
+    "countryselect_id": {
+      "type": "string",
+      "help": "Unique to this page. No spaces.",
+      "default": "Value"
     },
-    "name": {
-      "type": "string"
+    "countryselect_name": {
+      "type": "string",
+      "help": "Unique to this page. No spaces."
     },
     "siteURL": {
       "type": "string"

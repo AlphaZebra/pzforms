@@ -40,12 +40,13 @@
         ""
       ]
     },
-    "id": {
+    "radio_id": {
       "type": "string",
-      "default": "some1"
+      "default": "radio"
     },
-    "name": {
-      "type": "string"
+    "radio_name": {
+      "type": "string",
+      "default": "radio"
     },
     "loadCurrent": {
       "type": "boolean",

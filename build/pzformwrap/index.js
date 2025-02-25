@@ -63,14 +63,20 @@ function Edit(props) {
           children: "Set email address to send form submissions to in the PeakZebra settings page."
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       style: {
         borderStyle: "dashed"
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        style: {
+          fontSize: "12px",
+          marginLeft: "8px"
+        },
+        children: "Place form fields within the dotted border (that is, within the form tag). For security, be sure to place a pznonce block somewhere within the field. Every form must also include a pzsubmit block. Finally, be sure to give a unique name to the form and each of the fields."
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
         className: "form-style-1",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {})
-      })
+      })]
     })]
   });
 }

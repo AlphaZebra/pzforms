@@ -32,12 +32,13 @@
         ""
       ]
     },
-    "id": {
+    "dropdown_id": {
       "type": "string",
-      "default": "some1"
+      "default": "dropdown"
     },
-    "name": {
-      "type": "string"
+    "dropdown_name": {
+      "type": "string",
+      "default": "dropdown"
     },
     "loadCurrent": {
       "type": "boolean",

@@ -52,7 +52,7 @@ export default function Edit(props) {
           />
           <TextControl
             label="Unique name"
-            help="No spaces."
+            help="This is the name of the field in the form data when email is sent."
             value={
               attributes.textarea_name
                 ? attributes.textarea_name

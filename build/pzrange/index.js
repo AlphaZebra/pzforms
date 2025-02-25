@@ -47,11 +47,11 @@ function Edit(props) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
           label: "Field variable name",
-          help: "Unique to this page. No spaces.",
-          value: attributes.name ? attributes.name : attributes.id,
+          help: "Unique to this page. No spaces. This is the name of the field in the form data when email is sent.",
+          value: attributes.range_name ? attributes.range_name : attributes.range_id,
           onChange: value => setAttributes({
-            name: value,
-            id: value
+            range_name: value,
+            range_id: value
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.__experimentalNumberControl, {
           label: "Minimum Value",
@@ -165,7 +165,7 @@ function save({
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
     style: divStyle,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-      htmlFor: attributes.id,
+      htmlFor: attributes.range_id,
       children: attributes.prompt
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
       ...commonProps,
@@ -239,7 +239,7 @@ module.exports = window["wp"]["i18n"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzrange","version":"0.1.0","title":"PZ Range Slider","category":"peakzebra","icon":"slides","description":"Range slider input field.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"prompt":{"type":"string","default":"Select Value"},"id":{"type":"string","default":"range1"},"name":{"type":"string"},"width":{"type":"string","default":"100%"},"required":{"type":"boolean","default":false},"min":{"type":"number","default":0},"max":{"type":"number","default":100},"defaultValue":{"type":"number","default":50},"marginValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"paddingValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzrange","version":"0.1.0","title":"PZ Range Slider","category":"peakzebra","icon":"slides","description":"Range slider input field.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"prompt":{"type":"string","default":"Select Value"},"range_id":{"type":"string","default":"range"},"range_name":{"type":"string"},"width":{"type":"string","default":"100%"},"required":{"type":"boolean","default":false},"min":{"type":"number","default":0},"max":{"type":"number","default":100},"defaultValue":{"type":"number","default":50},"marginValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"paddingValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}}}');
 
 /***/ })
 
