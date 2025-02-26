@@ -187,6 +187,13 @@ class MySettingsPage
             'my-setting-admin',
             'setting_section_id'
         );
+        add_settings_field(
+            'peakforms_recaptcha_site_key',
+            'reCAPTCHA Site Key',
+            array( $this, 'peakforms_recaptcha_site_key_callback' ),
+            'my-setting-admin',
+            'setting_section_id'
+        );
     }
 
     /**
@@ -256,6 +263,14 @@ class MySettingsPage
         printf(
             '<input type="text" id="peakforms_recaptcha_secret_key" name="peakforms_option_name[peakforms_recaptcha_secret_key]" value="%s" />',
             isset( $this->options['peakforms_recaptcha_secret_key'] ) ? esc_attr( $this->options['peakforms_recaptcha_secret_key']) : ''
+        );
+    }
+
+    public function peakforms_recaptcha_site_key_callback()
+    {
+        printf(
+            '<input type="text" id="peakforms_recaptcha_site_key" name="peakforms_option_name[peakforms_recaptcha_site_key]" value="%s" />',
+            isset( $this->options['peakforms_recaptcha_site_key'] ) ? esc_attr( $this->options['peakforms_recaptcha_site_key']) : ''
         );
     }
 }
