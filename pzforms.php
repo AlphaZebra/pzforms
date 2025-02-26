@@ -24,7 +24,6 @@ require plugin_dir_path(__FILE__) . 'includes/class-peakforms-captcha.php';
 //include the pz_do_form.php file
 require_once( plugin_dir_path( __FILE__ ) . 'includes/pz_do_form.php' );
 
-// require_once plugin_dir_path(__FILE__) . 'includes/pz_enqueue_nonce.php';
 
 
 /**
@@ -63,36 +62,6 @@ function filter_block_categories( $block_categories, $editor_context ) {
 add_filter( 'block_categories_all', 'filter_block_categories', 10, 2 );
 
 
-
-// create a new post type called "peakfunctions"
-function create_peakfunctions_post_type() {
-	if (!current_user_can('manage_options')) {
-		return;
-	}
-	register_post_type( 'peakfunctions',
-		array(
-			'labels' => array(
-				'name' => __( 'Peak Functions', 'pzforms' ),
-				'singular_name' => __( 'Peak Function', 'pzforms'    ),
-				'add_new' => __( 'Add New', 'pzforms' ),
-				'add_new_item' => __( 'Add New Peak Function', 'pzforms' ),
-				'edit_item' => __( 'Edit Peak Function', 'pzforms' ),
-				'new_item' => __( 'New Peak Function', 'pzforms' ),
-				'view_item' => __( 'View Peak Function', 'pzforms' ),
-				'search_items' => __( 'Search Peak Functions', 'pzforms' ),
-				'not_found' => __( 'No peak functions found', 'pzforms' ),
-				'not_found_in_trash' => __( 'No peak functions found in trash', 'pzforms' )
-			),
-			'public' => true,
-			'show_ui' => true,
-			'show_in_menu' => true,
-			'supports' => array( 'title', 'editor' ),
-			'menu_position' => 99,
-		)
-	);
-	
-}
-add_action( 'init', 'create_peakfunctions_post_type' );
 
 class MySettingsPage
 {
