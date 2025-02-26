@@ -86,10 +86,10 @@ class MySettingsPage
     {
         // This page will be under "Settings"
 		add_options_page(
-            'Peakforms Settings',     // page title
-            'Peakforms',              // menu title
+            'PZForms Settings',     // page title
+            'PZForms',              // menu title
             'manage_options',         // capability
-            'peakforms-settings',     // menu slug
+            'pzforms-settings',     // menu slug
             array( $this, 'create_admin_page' )  // callback
         );
     }
@@ -100,20 +100,20 @@ class MySettingsPage
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option( 'peakforms_option_name' );
+        $this->options = get_option( 'pzforms_option_name' );
         ?>
         <div class="wrap">
             <h1><?php echo esc_html__('pzForms Settings', 'pzforms'); ?></h1>
             <form method="post" action="options.php">
             <?php
-                wp_nonce_field('peakforms_settings_nonce', 'peakforms_nonce');
-                settings_fields( 'peakforms_option_group' );
+                wp_nonce_field('pzforms_settings_nonce', 'pzforms_nonce');
+                settings_fields( 'pzforms_option_group' );
                 do_settings_sections( 'my-setting-admin' );
                 submit_button();
             ?>
             </form>
             <h2><?php echo esc_html__('Getting Started', 'pzforms'); ?></h2>
-            <p><?php echo esc_html__('Welcome to Peakforms! This plugin is designed to help you create beautiful, responsive forms using the WordPress block editor and blocks that implement each form field type. Follow the steps below to get started:', 'pzforms'); ?></p>
+            <p><?php echo esc_html__('Welcome to PZForms! This plugin is designed to help you create beautiful, responsive forms using the WordPress block editor and blocks that implement each form field type. Follow the steps below to get started:', 'pzforms'); ?></p>
             <ol>
                 <li><?php echo esc_html__('Set the configurations above.', 'pzforms'); ?></li>
                 <li><?php echo esc_html__('(coming soon) The encryption key is used to encrypt any local JavaScript you create to verify or process data entered in some fields.', 'pzforms'); ?></li>    
@@ -125,21 +125,7 @@ class MySettingsPage
                 <li><?php echo esc_html__('Configure the settings for each.', 'pzforms'); ?></li>
                 <li><?php echo esc_html__('Repeat until the form is the way you want it.', 'pzforms'); ?></li>
             </ol>
-            <h2><?php echo esc_html__('Creating Functions', 'pzforms'); ?></h2>
-            <p>
-                <?php 
-                echo wp_kses(
-                    sprintf(
-                        /* translators: %s: URL to Peak Functions admin page */
-                        __('Functions are used to process data on submission. They are created in the <a href="%s">Peak Functions</a> post type.', 'pzforms'),
-                        esc_url(admin_url('edit.php?post_type=peakfunctions'))
-                    ),
-                    array(
-                        'a' => array('href' => array())
-                    )
-                );
-                ?>
-            </p>
+          
         </div>
         <?php
     }
@@ -150,8 +136,8 @@ class MySettingsPage
     public function page_init()
     {        
         register_setting(
-            'peakforms_option_group', // Option group
-            'peakforms_option_name', // Option name
+            'pzforms_option_group', // Option group
+            'pzforms_option_name', // Option name
             array('MySettingsPage', 'sanitize') // Callback
         );
 
@@ -165,32 +151,32 @@ class MySettingsPage
     
 
         add_settings_field(
-            'peakforms_key', 
-            'Peakforms Key', 
-            array( $this, 'peakforms_key_callback' ), 
+            'pzforms_key', 
+            'PZForms Key', 
+            array( $this, 'pzforms_key_callback' ), 
             'my-setting-admin', 
             'setting_section_id'
         );      
 
         add_settings_field(
-            'peakforms_email', 
+            'pzforms_email', 
             'Email where form submissions will be sent', 
-            array( $this, 'peakforms_email_callback' ), 
+            array( $this, 'pzforms_email_callback' ), 
             'my-setting-admin', 
             'setting_section_id'
         );     
 
         add_settings_field(
-            'peakforms_recaptcha_secret_key',
+            'pzforms_recaptcha_secret_key',
             'reCAPTCHA Secret Key',
-            array( $this, 'peakforms_recaptcha_secret_key_callback' ),
+            array( $this, 'pzforms_recaptcha_secret_key_callback' ),
             'my-setting-admin',
             'setting_section_id'
         );
         add_settings_field(
-            'peakforms_recaptcha_site_key',
+            'pzforms_recaptcha_site_key',
             'reCAPTCHA Site Key',
-            array( $this, 'peakforms_recaptcha_site_key_callback' ),
+            array( $this, 'pzforms_recaptcha_site_key_callback' ),
             'my-setting-admin',
             'setting_section_id'
         );
@@ -204,27 +190,27 @@ class MySettingsPage
     public static function sanitize( $input )
     {
         // Verify nonce
-        if (!isset($_POST['peakforms_nonce']) || !wp_verify_nonce(wp_unslash($_POST['peakforms_nonce']), 'peakforms_settings_nonce')) {
-            add_settings_error('peakforms_messages', 'peakforms_message', __('Security check failed.', 'pzforms'), 'error');
-            return get_option('peakforms_option_name'); // Return existing options
+        if (!isset($_POST['pzforms_nonce']) || !wp_verify_nonce(wp_unslash($_POST['pzforms_nonce']), 'pzforms_settings_nonce')) {
+            add_settings_error('pzforms_messages', 'pzforms_message', __('Security check failed.', 'pzforms'), 'error');
+            return get_option('pzforms_option_name'); // Return existing options
         }
 
         // Verify user capabilities
         if (!current_user_can('manage_options')) {
-            add_settings_error('peakforms_messages', 'peakforms_message', __('You do not have sufficient permissions.', 'pzforms'), 'error');
-            return get_option('peakforms_option_name'); // Return existing options
+            add_settings_error('pzforms_messages', 'pzforms_message', __('You do not have sufficient permissions.', 'pzforms'), 'error');
+            return get_option('pzforms_option_name'); // Return existing options
         }
 
         $new_input = array();
 
-        if(isset($input['peakforms_key'])) {
-            $new_input['peakforms_key'] = sanitize_text_field($input['peakforms_key']);
+        if(isset($input['pzforms_key'])) {
+            $new_input['pzforms_key'] = sanitize_text_field($input['pzforms_key']);
         }
-        if(isset($input['peakforms_email'])) {
-            $new_input['peakforms_email'] = sanitize_email($input['peakforms_email']);
+        if(isset($input['pzforms_email'])) {
+            $new_input['pzforms_email'] = sanitize_email($input['pzforms_email']);
         }
-        if(isset($input['peakforms_recaptcha_secret_key'])) {
-            $new_input['peakforms_recaptcha_secret_key'] = sanitize_text_field($input['peakforms_recaptcha_secret_key']);
+        if(isset($input['pzforms_recaptcha_secret_key'])) {
+            $new_input['pzforms_recaptcha_secret_key'] = sanitize_text_field($input['pzforms_recaptcha_secret_key']);
         }
         return $new_input;
     }
@@ -242,35 +228,35 @@ class MySettingsPage
     /** 
      * Get the settings option array and print one of its values
      */
-    public function peakforms_key_callback()
+    public function pzforms_key_callback()
     {
         printf(
-            '<input type="text" id="peakforms_key" name="peakforms_option_name[peakforms_key]" value="%s" />',
-            isset( $this->options['peakforms_key'] ) ? esc_attr( $this->options['peakforms_key']) : ''
+            '<input type="text" id="pzforms_key" name="pzforms_option_name[pzforms_key]" value="%s" />',
+            isset( $this->options['pzforms_key'] ) ? esc_attr( $this->options['pzforms_key']) : ''
         );
     }
 
-    public function peakforms_email_callback()
+    public function pzforms_email_callback()
     {
         printf(
-            '<input type="text" id="peakforms_email" name="peakforms_option_name[peakforms_email]" value="%s" />',
-            isset( $this->options['peakforms_email'] ) ? esc_attr( $this->options['peakforms_email']) : ''
+            '<input type="text" id="pzforms_email" name="pzforms_option_name[pzforms_email]" value="%s" />',
+            isset( $this->options['pzforms_email'] ) ? esc_attr( $this->options['pzforms_email']) : ''
         );
     }	
 
-    public function peakforms_recaptcha_secret_key_callback()
+    public function pzforms_recaptcha_secret_key_callback()
     {
         printf(
-            '<input type="text" id="peakforms_recaptcha_secret_key" name="peakforms_option_name[peakforms_recaptcha_secret_key]" value="%s" />',
-            isset( $this->options['peakforms_recaptcha_secret_key'] ) ? esc_attr( $this->options['peakforms_recaptcha_secret_key']) : ''
+            '<input type="text" id="pzforms_recaptcha_secret_key" name="pzforms_option_name[pzforms_recaptcha_secret_key]" value="%s" />',
+            isset( $this->options['pzforms_recaptcha_secret_key'] ) ? esc_attr( $this->options['pzforms_recaptcha_secret_key']) : ''
         );
     }
 
-    public function peakforms_recaptcha_site_key_callback()
+    public function pzforms_recaptcha_site_key_callback()
     {
         printf(
-            '<input type="text" id="peakforms_recaptcha_site_key" name="peakforms_option_name[peakforms_recaptcha_site_key]" value="%s" />',
-            isset( $this->options['peakforms_recaptcha_site_key'] ) ? esc_attr( $this->options['peakforms_recaptcha_site_key']) : ''
+            '<input type="text" id="pzforms_recaptcha_site_key" name="pzforms_option_name[pzforms_recaptcha_site_key]" value="%s" />',
+            isset( $this->options['pzforms_recaptcha_site_key'] ) ? esc_attr( $this->options['pzforms_recaptcha_site_key']) : ''
         );
     }
 }

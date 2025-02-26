@@ -13,15 +13,15 @@ class PeakForms_Captcha {
      */
     public function __construct() {
         // Get the options array
-        $options = get_option('peakforms_option_name', array());
+        $options = get_option('pzforms_option_name', array());
         
         // Get the secret key from the options array
-        $this->secret_key = isset($options['peakforms_recaptcha_secret_key']) 
-            ? $options['peakforms_recaptcha_secret_key'] 
+        $this->secret_key = isset($options['pzforms_recaptcha_secret_key']) 
+            ? $options['pzforms_recaptcha_secret_key'] 
             : '';
         
         // Add filter to validate form submission
-        add_filter('peakforms_validate_submission', array($this, 'validate_captcha'), 10, 2);
+        add_filter('pzforms_validate_submission', array($this, 'validate_captcha'), 10, 2);
     }
 
     /**
