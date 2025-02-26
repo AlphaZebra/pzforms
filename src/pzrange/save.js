@@ -5,12 +5,13 @@ export default function save({ attributes }) {
 
   const commonProps = {
     type: "range",
-    id: attributes.id,
-    name: attributes.id,
+    id: attributes.range_id,
+    name: attributes.range_name,
     min: attributes.min,
     max: attributes.max,
     value: attributes.defaultValue,
     style: { width: attributes.width },
+    "data-range-id": attributes.range_id,
   };
 
   const divStyle = {
@@ -31,7 +32,9 @@ export default function save({ attributes }) {
       />
       <output>
         Value:{" "}
-        <span id={`${attributes.id}-output`}>{attributes.defaultValue}</span>
+        <span id={`${attributes.range_id}-output`}>
+          {attributes.defaultValue}
+        </span>
       </output>
     </div>
   );

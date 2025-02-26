@@ -148,14 +148,15 @@ function save({
   attributes.class = "form-style-1";
   const commonProps = {
     type: "range",
-    id: attributes.id,
-    name: attributes.id,
+    id: attributes.range_id,
+    name: attributes.range_name,
     min: attributes.min,
     max: attributes.max,
     value: attributes.defaultValue,
     style: {
       width: attributes.width
-    }
+    },
+    "data-range-id": attributes.range_id
   };
   const divStyle = {
     margin: attributes.marginValues ? `${attributes.marginValues.top} ${attributes.marginValues.right} ${attributes.marginValues.bottom} ${attributes.marginValues.left}` : undefined,
@@ -174,7 +175,7 @@ function save({
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("output", {
       children: ["Value:", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-        id: `${attributes.id}-output`,
+        id: `${attributes.range_id}-output`,
         children: attributes.defaultValue
       })]
     })]
@@ -239,7 +240,7 @@ module.exports = window["wp"]["i18n"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzrange","version":"0.1.0","title":"PZ Range Slider","category":"peakzebra","icon":"slides","description":"Range slider input field.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"prompt":{"type":"string","default":"Select Value"},"range_id":{"type":"string","default":"range"},"range_name":{"type":"string"},"width":{"type":"string","default":"100%"},"required":{"type":"boolean","default":false},"min":{"type":"number","default":0},"max":{"type":"number","default":100},"defaultValue":{"type":"number","default":50},"marginValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"paddingValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzrange","version":"0.1.0","title":"PZ Range Slider","category":"peakzebra","icon":"slides","description":"Range slider input field.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","attributes":{"prompt":{"type":"string","default":"Select Value"},"range_id":{"type":"string","default":"range"},"range_name":{"type":"string","default":"range1"},"width":{"type":"string","default":"100%"},"required":{"type":"boolean","default":false},"min":{"type":"number","default":0},"max":{"type":"number","default":100},"defaultValue":{"type":"number","default":50},"marginValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"paddingValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}}}}');
 
 /***/ })
 
