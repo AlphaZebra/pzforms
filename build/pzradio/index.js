@@ -1,1 +1,660 @@
-(()=>{"use strict";var e,t={275:()=>{const e=window.wp.blocks,t=(window.wp.i18n,window.wp.blockEditor),r=window.wp.components,o=window.ReactJSXRuntime,s=JSON.parse('{"UU":"peakforms/pzradio"}');(0,e.registerBlockType)(s.UU,{icon:{src:(0,o.jsxs)("svg",{width:"32",height:"32",viewBox:"0 0 32 32",xmlns:"http://www.w3.org/2000/svg",style:{fill:"currentColor"},children:[(0,o.jsx)("path",{d:"M29,6H17c-0.6,0-1-0.4-1-1s0.4-1,1-1h12c0.6,0,1,0.4,1,1S29.6,6,29,6z"}),(0,o.jsx)("path",{d:"M24,10h-7c-0.6,0-1-0.4-1-1s0.4-1,1-1h7c0.6,0,1,0.4,1,1S24.6,10,24,10z"}),(0,o.jsx)("path",{d:"M29,22H17c-0.6,0-1-0.4-1-1s0.4-1,1-1h12c0.6,0,1,0.4,1,1S29.6,22,29,22z"}),(0,o.jsx)("path",{d:"M24,26h-7c-0.6,0-1-0.4-1-1s0.4-1,1-1h7c0.6,0,1,0.4,1,1S24.6,26,24,26z"}),(0,o.jsx)("path",{d:"M8,30c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S11.3,30,8,30z"}),(0,o.jsx)("path",{d:"M8,2C4.7,2,2,4.7,2,8s2.7,6,6,6s6-2.7,6-6S11.3,2,8,2z M8,10c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S9.1,10,8,10z"})]}),foreground:"#0693e3"},edit:function(e){const{attributes:s,setAttributes:n}=e,{backgroundColor:a}=s,l=(0,t.useBlockProps)(),{textColor:i}=s,c=(e.attributes.question,document.querySelector("body")),u=getComputedStyle(c).getPropertyValue("--wp--preset--color--base"),d=getComputedStyle(c).getPropertyValue("--wp--preset--color--contrast"),p=getComputedStyle(c).getPropertyValue("--wp--preset--color--accent"),x=getComputedStyle(c).getPropertyValue("--wp--preset--color--accent-5");return""==s.formBackground&&n({formBackground:u}),""==s.formColor&&n({formColor:d}),""==s.buttonColor&&n({buttonColor:p}),""==s.buttonTextColor&&n({buttonTextColor:d}),""==s.buttonBackgroundHoverColor&&n({buttonBackgroundHoverColor:x}),(0,o.jsxs)("div",{...l,children:[(0,o.jsxs)(t.InspectorControls,{children:[(0,o.jsx)(r.TextControl,{label:"Unique field id",value:s.radio_id,onChange:e=>n({radio_id:e})}),(0,o.jsx)(r.TextControl,{label:"Unique field name",help:"Unique to this page. No spaces. This is the name of the field in the form data when email is sent.",value:s.radio_name,onChange:e=>n({radio_name:e})}),(0,o.jsx)(r.CheckboxControl,{label:"Horizontal Layout",checked:s.horizontalLayout,onChange:e=>n({horizontalLayout:e})})]}),(0,o.jsxs)("div",{className:s.formStyle,children:[(0,o.jsx)(r.TextControl,{label:"Question:",value:e.attributes.question,onChange:function(t){e.setAttributes({question:t})},style:{fontSize:"20px"}}),(0,o.jsx)(r.TextControl,{label:"Slug name:",value:e.attributes.slug,onChange:function(t){e.setAttributes({slug:t})},style:{fontSize:"20px"}}),(0,o.jsx)("p",{style:{fontSize:"13px",margin:"20px 0 8px 0"},children:"Answers:"}),e.attributes.answers.map((function(t,s){return(0,o.jsxs)(r.Flex,{children:[(0,o.jsx)(r.FlexBlock,{children:(0,o.jsx)(r.TextControl,{value:t,onChange:t=>{const r=e.attributes.answers.concat([]);r[s]=t,e.setAttributes({answers:r})}})}),(0,o.jsx)(r.FlexItem,{children:(0,o.jsx)(r.Button,{variant:"link",className:"pz-delete",onClick:()=>function(t){const r=e.attributes.answers.filter((function(e,r){return r!=t}));e.setAttributes({answers:r}),t==e.attributes.correctAnswer&&e.setAttributes({correctAnswer:void 0})}(s),children:"Delete"})})]})})),(0,o.jsx)(r.Button,{variant:"primary",onClick:()=>{e.setAttributes({answers:e.attributes.answers.concat([""])})},children:"Add another answer"})]})]})},save:function({attributes:e}){const r=window.location.href,s=new URL(r);return s.protocol,s.host,1==e.required?(0,o.jsxs)("div",{...t.useBlockProps.save(),className:"form-style-1",children:[(0,o.jsx)("p",{className:"pz-question-text",children:e.question}),(0,o.jsx)("div",{style:{display:e.horizontalLayout?"flex":"block",flexWrap:"wrap",gap:"20px"},children:e.answers.map((function(t,r){return(0,o.jsxs)("div",{style:{flex:e.horizontalLayout?"0 1 calc(33.33% - 14px)":"1 1 100%"},children:[(0,o.jsx)("input",{type:"radio",id:t,name:e.slug,value:t,required:"required"}),(0,o.jsx)("label",{className:"pz-answer-text",for:t,children:t}),(0,o.jsx)("br",{})]})}))})]}):(0,o.jsxs)("div",{...t.useBlockProps.save(),className:"form-style-1",children:[(0,o.jsx)("p",{className:"pz-question-text",children:e.question}),(0,o.jsx)("div",{style:{display:e.horizontalLayout?"flex":"block",flexWrap:"wrap",gap:"20px"},children:e.answers.map((function(t,r){return(0,o.jsxs)("div",{style:{flex:e.horizontalLayout?"0 1 calc(33.33% - 14px)":"1 1 100%"},children:[(0,o.jsx)("input",{type:"radio",id:t,name:e.slug,value:t,required:e.required?"required":void 0}),(0,o.jsx)("label",{className:"pz-answer-text",for:t,children:t}),(0,o.jsx)("br",{})]})}))})]})}})}},r={};function o(e){var s=r[e];if(void 0!==s)return s.exports;var n=r[e]={exports:{}};return t[e](n,n.exports,o),n.exports}o.m=t,e=[],o.O=(t,r,s,n)=>{if(!r){var a=1/0;for(u=0;u<e.length;u++){r=e[u][0],s=e[u][1],n=e[u][2];for(var l=!0,i=0;i<r.length;i++)(!1&n||a>=n)&&Object.keys(o.O).every((e=>o.O[e](r[i])))?r.splice(i--,1):(l=!1,n<a&&(a=n));if(l){e.splice(u--,1);var c=s();void 0!==c&&(t=c)}}return t}n=n||0;for(var u=e.length;u>0&&e[u-1][2]>n;u--)e[u]=e[u-1];e[u]=[r,s,n]},o.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={895:0,607:0};o.O.j=t=>0===e[t];var t=(t,r)=>{var s,n,a=r[0],l=r[1],i=r[2],c=0;if(a.some((t=>0!==e[t]))){for(s in l)o.o(l,s)&&(o.m[s]=l[s]);if(i)var u=i(o)}for(t&&t(r);c<a.length;c++)n=a[c],o.o(e,n)&&e[n]&&e[n][0](),e[n]=0;return o.O(u)},r=self.webpackChunkpzforms=self.webpackChunkpzforms||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})();var s=o.O(void 0,[607],(()=>o(275)));s=o.O(s)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/pzradio/edit.js":
+/*!*****************************!*\
+  !*** ./src/pzradio/edit.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+
+
+
+
+
+function Edit(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const {
+    backgroundColor
+  } = attributes;
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+  const {
+    textColor
+  } = attributes;
+  const curQuestion = props.attributes.question;
+
+  // get starting style values
+  const body = document.querySelector("body");
+  const themeBase = getComputedStyle(body).getPropertyValue("--wp--preset--color--base");
+  const themeContrast = getComputedStyle(body).getPropertyValue("--wp--preset--color--contrast");
+  const themeButtonBackground = getComputedStyle(body).getPropertyValue("--wp--preset--color--accent");
+  const themeButtonBackgroundHoverColor = getComputedStyle(body).getPropertyValue("--wp--preset--color--accent-5");
+  if (attributes.formBackground == "") setAttributes({
+    formBackground: themeBase
+  });
+  if (attributes.formColor == "") setAttributes({
+    formColor: themeContrast
+  });
+  if (attributes.buttonColor == "") setAttributes({
+    buttonColor: themeButtonBackground
+  });
+  if (attributes.buttonTextColor == "") setAttributes({
+    buttonTextColor: themeContrast
+  });
+  if (attributes.buttonBackgroundHoverColor == "") setAttributes({
+    buttonBackgroundHoverColor: themeButtonBackgroundHoverColor
+  });
+
+  // define the onChange functions
+  const onChangeBackgroundColor = val => {
+    setAttributes({
+      formBackground: val
+    });
+  };
+  const onChangeFormColor = val => {
+    setAttributes({
+      formColor: val
+    });
+  };
+  const onChangeButtonColor = val => {
+    setAttributes({
+      buttonColor: val
+    });
+  };
+  const onChangeButtonTextColor = val => {
+    setAttributes({
+      buttonTextColor: val
+    });
+  };
+  const onChangeButtonBackgroundHoverColor = val => {
+    setAttributes({
+      buttonBackgroundHoverColor: val
+    });
+  };
+  function updateQuestion(newVal) {
+    props.setAttributes({
+      question: newVal
+    });
+  }
+  function updateSlug(newVal) {
+    props.setAttributes({
+      slug: newVal
+    });
+  }
+  function updateTextColor(newVal) {
+    props.setAttributes({
+      textColor: newVal
+    });
+  }
+  function updateButtonTextColor(newVal) {
+    props.setAttributes({
+      buttonTextColor: newVal
+    });
+  }
+  function updateButtonBackgroundColor(newVal) {
+    props.setAttributes({
+      buttonBackgroundColor: newVal
+    });
+  }
+  function updateBlockBackgroundColor(newVal) {
+    props.setAttributes({
+      blockBackgroundColor: newVal
+    });
+  }
+  function deleteAnswer(x) {
+    const newAnswers = props.attributes.answers.filter(function (z, index) {
+      return index != x;
+    });
+    props.setAttributes({
+      answers: newAnswers
+    });
+    if (x == props.attributes.correctAnswer) {
+      props.setAttributes({
+        correctAnswer: undefined
+      });
+    }
+  }
+  function setAnswer(x) {
+    props.setAttributes({
+      correctAnswer: x
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    ...blockProps,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Unique field id",
+        value: attributes.radio_id,
+        onChange: value => setAttributes({
+          radio_id: value
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Unique field name",
+        help: "Unique to this page. No spaces. This is the name of the field in the form data when email is sent.",
+        value: attributes.radio_name,
+        onChange: value => setAttributes({
+          radio_name: value
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CheckboxControl, {
+        label: "Horizontal Layout",
+        checked: attributes.horizontalLayout,
+        onChange: value => setAttributes({
+          horizontalLayout: value
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: attributes.formStyle,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Question:",
+        value: props.attributes.question,
+        onChange: updateQuestion,
+        style: {
+          fontSize: "20px"
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Slug name:",
+        value: props.attributes.slug,
+        onChange: updateSlug,
+        style: {
+          fontSize: "20px"
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        style: {
+          fontSize: "13px",
+          margin: "20px 0 8px 0"
+        },
+        children: "Answers:"
+      }), props.attributes.answers.map(function (answer, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              value: answer,
+              onChange: x => {
+                const newAnswers = props.attributes.answers.concat([]);
+                newAnswers[index] = x;
+                props.setAttributes({
+                  answers: newAnswers
+                });
+              }
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+              variant: "link",
+              className: "pz-delete",
+              onClick: () => deleteAnswer(index),
+              children: "Delete"
+            })
+          })]
+        });
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+        variant: "primary",
+        onClick: () => {
+          props.setAttributes({
+            answers: props.attributes.answers.concat([""])
+          });
+        },
+        children: "Add another answer"
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/pzradio/index.js":
+/*!******************************!*\
+  !*** ./src/pzradio/index.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/pzradio/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/pzradio/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/pzradio/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/pzradio/block.json");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
+  icon: {
+    src: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
+      width: "32",
+      height: "32",
+      viewBox: "0 0 32 32",
+      xmlns: "http://www.w3.org/2000/svg",
+      style: {
+        fill: "currentColor"
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+        d: "M29,6H17c-0.6,0-1-0.4-1-1s0.4-1,1-1h12c0.6,0,1,0.4,1,1S29.6,6,29,6z"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+        d: "M24,10h-7c-0.6,0-1-0.4-1-1s0.4-1,1-1h7c0.6,0,1,0.4,1,1S24.6,10,24,10z"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+        d: "M29,22H17c-0.6,0-1-0.4-1-1s0.4-1,1-1h12c0.6,0,1,0.4,1,1S29.6,22,29,22z"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+        d: "M24,26h-7c-0.6,0-1-0.4-1-1s0.4-1,1-1h7c0.6,0,1,0.4,1,1S24.6,26,24,26z"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+        d: "M8,30c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S11.3,30,8,30z"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+        d: "M8,2C4.7,2,2,4.7,2,8s2.7,6,6,6s6-2.7,6-6S11.3,2,8,2z M8,10c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S9.1,10,8,10z"
+      })]
+    }),
+    foreground: "#0693e3"
+  },
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  /**
+   * @see ./save.js
+   */
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./src/pzradio/save.js":
+/*!*****************************!*\
+  !*** ./src/pzradio/save.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+ *
+ * @return {Element} Element to render.
+ */
+
+function save({
+  attributes
+}) {
+  const thisURL = window.location.href;
+  const url = new URL(thisURL);
+  const adminPath = url.protocol + "//" + url.host + "/wp-admin/admin-post.php";
+  if (attributes.required == true) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
+      className: "form-style-1",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "pz-question-text",
+        children: attributes.question
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        style: {
+          display: attributes.horizontalLayout ? "flex" : "block",
+          flexWrap: "wrap",
+          gap: "20px"
+        },
+        children: attributes.answers.map(function (answer, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            style: {
+              flex: attributes.horizontalLayout ? "0 1 calc(33.33% - 14px)" : "1 1 100%"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+              type: "radio",
+              id: answer,
+              name: attributes.slug,
+              value: answer,
+              required: "required"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+              className: "pz-answer-text",
+              for: answer,
+              children: answer
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
+          });
+        })
+      })]
+    });
+  }
+
+  // else
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
+    className: "form-style-1",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "pz-question-text",
+      children: attributes.question
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      style: {
+        display: attributes.horizontalLayout ? "flex" : "block",
+        flexWrap: "wrap",
+        gap: "20px"
+      },
+      children: attributes.answers.map(function (answer, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          style: {
+            flex: attributes.horizontalLayout ? "0 1 calc(33.33% - 14px)" : "1 1 100%"
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+            type: "radio",
+            id: answer,
+            name: attributes.slug,
+            value: answer,
+            required: attributes.required ? "required" : undefined
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+            className: "pz-answer-text",
+            for: answer,
+            children: answer
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {})]
+        });
+      })
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/pzradio/style.scss":
+/*!********************************!*\
+  !*** ./src/pzradio/style.scss ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./src/pzradio/block.json":
+/*!********************************!*\
+  !*** ./src/pzradio/block.json ***!
+  \********************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzradio","version":"0.1.0","title":"Peakforms Radio","category":"peakzebra","icon":"smiley","description":"Radio button form field.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Value"},"table":{"type":"string","default":"person"},"field":{"type":"string","default":"lastname"},"question":{"type":"string"},"slug":{"type":"string"},"answers":{"type":"array","default":[""]},"radio_id":{"type":"string","default":"radio"},"radio_name":{"type":"string","default":"radio"},"loadCurrent":{"type":"boolean","default":false},"required":{"type":"boolean","default":false},"marginValues":{"type":"object","default":{"top":"50px","left":"10%","right":"10%","bottom":"50px"}},"formStyle":{"type":"string","default":"form-style-1"},"textColor":{"type":"string"},"horizontalLayout":{"type":"boolean","default":false}}}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var chunkIds = deferred[i][0];
+/******/ 				var fn = deferred[i][1];
+/******/ 				var priority = deferred[i][2];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"pzradio/index": 0,
+/******/ 			"pzradio/style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var chunkIds = data[0];
+/******/ 			var moreModules = data[1];
+/******/ 			var runtime = data[2];
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkpzforms"] = self["webpackChunkpzforms"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["pzradio/style-index"], () => (__webpack_require__("./src/pzradio/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

@@ -1,1 +1,554 @@
-(()=>{"use strict";var e,t={327:()=>{const e=window.wp.blocks,t=(window.wp.i18n,window.wp.blockEditor),r=window.wp.components,o=window.ReactJSXRuntime,n=JSON.parse('{"UU":"peakforms/pzdropdown"}');(0,e.registerBlockType)(n.UU,{icon:{src:(0,o.jsxs)("svg",{viewBox:"0 0 14 14",xmlns:"http://www.w3.org/2000/svg",fill:"none",stroke:"currentColor",strokeWidth:"0.7",children:[(0,o.jsx)("g",{id:"SVGRepo_bgCarrier",strokeWidth:"0"}),(0,o.jsx)("g",{id:"SVGRepo_tracerCarrier",strokeLinecap:"round",strokeLinejoin:"round"}),(0,o.jsxs)("g",{id:"SVGRepo_iconCarrier",children:[(0,o.jsx)("path",{fill:"currentColor",d:"M1.0000123,6.99975 v-4.7134 h5.8088699 c4.1431298,0 5.8462998,0.017 5.9393898,0.06 0.0718,0.033 0.15728,0.1182 0.189991,0.19 0.0823,0.1807 0.0823,3.6053 0,3.786 -0.105991,0.2326 -0.2305,0.2494 -1.84448,0.2494 h-1.5239708 v2.571 v2.5709 h-4.2849 -4.2849 v-4.7135 z"}),(0,o.jsx)("path",{fill:"#E1E8ED",d:"M8.7128323,8.71375 v-2.1425 h-3.4279201 -3.42792 v2.1425 2.1424 h3.42792 3.4279201 v-2.1424 z"}),(0,o.jsx)("path",{fill:"currentColor",d:"M2.71397,9.5708 v-0.4285 h2.5709399 2.57094 v0.4285 0.4284 h-2.57094 -2.5709399 v-0.4284 z M2.71397,7.8568 v-0.4285 h2.5709399 2.57094 v0.4285 0.4285 h-2.57094 -2.5709399 v-0.4285 z"}),(0,o.jsx)("path",{fill:"#E1E8ED",d:"M8.7128323,4.4289 v-1.2855 h-3.4279201 -3.42792 v1.2855 1.2854 h3.42792 3.4279201 v-1.2854 z"}),(0,o.jsx)("path",{fill:"currentColor",d:"M11.003913,5.5135 c0.192459,-0.1687 1.35108,-1.6577 1.35108,-1.7364 0,-0.1911 -0.1034,-0.2052 -1.49971,-0.2052 -1.3963208,0 -1.4997208,0.014 -1.4997208,0.2052 0,0.042 0.27994,0.4291 0.62208,0.8597 0.6085808,0.766 0.7934798,0.9704 0.8776398,0.9704 0.0229,0 0.0898,-0.042 0.148631,-0.094 z"})]})]}),foreground:"#0693e3"},edit:function(e){const{attributes:n,setAttributes:s}=e,i=(0,t.useBlockProps)(),l=document.querySelector("body"),a=getComputedStyle(l).getPropertyValue("--wp--preset--color--base"),u=getComputedStyle(l).getPropertyValue("--wp--preset--color--contrast"),c=getComputedStyle(l).getPropertyValue("--wp--preset--color--accent"),d=getComputedStyle(l).getPropertyValue("--wp--preset--color--accent-5");return""==n.formBackground&&s({formBackground:a}),""==n.formColor&&s({formColor:u}),""==n.buttonColor&&s({buttonColor:c}),""==n.buttonTextColor&&s({buttonTextColor:u}),""==n.buttonBackgroundHoverColor&&s({buttonBackgroundHoverColor:d}),(0,o.jsxs)("div",{...i,children:[(0,o.jsxs)(t.InspectorControls,{children:[(0,o.jsx)(r.CheckboxControl,{label:"Required",checked:n.required,onChange:e=>s({required:e})}),(0,o.jsx)(r.TextControl,{label:"Unique field id",value:n.dropdown_id,onChange:e=>s({dropdown_id:e})}),(0,o.jsx)(r.TextControl,{label:"Unique field name",help:"Unique to this page. No spaces. This is the name of the field in the form data when email is sent.",value:n.dropdown_name,onChange:e=>s({dropdown_name:e})})]}),(0,o.jsxs)("div",{className:n.formStyle,children:[(0,o.jsx)(r.TextControl,{label:"Question:",value:e.attributes.question,onChange:function(t){e.setAttributes({question:t})},style:{fontSize:"20px"}}),(0,o.jsx)(r.TextControl,{label:"Slug name:",value:e.attributes.slug,onChange:function(t){e.setAttributes({slug:t})},style:{fontSize:"20px"}}),(0,o.jsx)("p",{style:{fontSize:"13px",margin:"20px 0 8px 0"},children:"Options:"}),e.attributes.answers.map((function(t,n){return(0,o.jsxs)(r.Flex,{children:[(0,o.jsx)(r.FlexBlock,{children:(0,o.jsx)(r.TextControl,{value:t,onChange:t=>{const r=e.attributes.answers.concat([]);r[n]=t,e.setAttributes({answers:r})}})}),(0,o.jsx)(r.FlexItem,{children:(0,o.jsx)(r.Button,{variant:"link",className:"pz-delete",onClick:()=>function(t){const r=e.attributes.answers.filter((function(e,r){return r!=t}));e.setAttributes({answers:r})}(n),children:"Delete"})})]})})),(0,o.jsx)(r.Button,{variant:"primary",onClick:()=>{e.setAttributes({answers:e.attributes.answers.concat([""])})},children:"Add another option"})]})]})},save:function({attributes:e}){return(0,o.jsxs)("div",{...t.useBlockProps.save(),className:"form-style-1",children:[(0,o.jsx)("p",{className:"pz-question-text",children:e.question}),(0,o.jsxs)("select",{name:e.slug,required:e.required?"required":void 0,children:[(0,o.jsx)("option",{value:"",children:"Select an option"}),e.answers.map((function(e){return(0,o.jsx)("option",{value:e,children:e})}))]})]})}})}},r={};function o(e){var n=r[e];if(void 0!==n)return n.exports;var s=r[e]={exports:{}};return t[e](s,s.exports,o),s.exports}o.m=t,e=[],o.O=(t,r,n,s)=>{if(!r){var i=1/0;for(c=0;c<e.length;c++){r=e[c][0],n=e[c][1],s=e[c][2];for(var l=!0,a=0;a<r.length;a++)(!1&s||i>=s)&&Object.keys(o.O).every((e=>o.O[e](r[a])))?r.splice(a--,1):(l=!1,s<i&&(i=s));if(l){e.splice(c--,1);var u=n();void 0!==u&&(t=u)}}return t}s=s||0;for(var c=e.length;c>0&&e[c-1][2]>s;c--)e[c]=e[c-1];e[c]=[r,n,s]},o.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={243:0,707:0};o.O.j=t=>0===e[t];var t=(t,r)=>{var n,s,i=r[0],l=r[1],a=r[2],u=0;if(i.some((t=>0!==e[t]))){for(n in l)o.o(l,n)&&(o.m[n]=l[n]);if(a)var c=a(o)}for(t&&t(r);u<i.length;u++)s=i[u],o.o(e,s)&&e[s]&&e[s][0](),e[s]=0;return o.O(c)},r=self.webpackChunkpzforms=self.webpackChunkpzforms||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})();var n=o.O(void 0,[707],(()=>o(327)));n=o.O(n)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/pzdropdown/edit.js":
+/*!********************************!*\
+  !*** ./src/pzdropdown/edit.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+
+
+
+
+function Edit(props) {
+  const {
+    attributes,
+    setAttributes
+  } = props;
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+
+  // get starting style values
+  const body = document.querySelector("body");
+  const themeBase = getComputedStyle(body).getPropertyValue("--wp--preset--color--base");
+  const themeContrast = getComputedStyle(body).getPropertyValue("--wp--preset--color--contrast");
+  const themeButtonBackground = getComputedStyle(body).getPropertyValue("--wp--preset--color--accent");
+  const themeButtonBackgroundHoverColor = getComputedStyle(body).getPropertyValue("--wp--preset--color--accent-5");
+  if (attributes.formBackground == "") setAttributes({
+    formBackground: themeBase
+  });
+  if (attributes.formColor == "") setAttributes({
+    formColor: themeContrast
+  });
+  if (attributes.buttonColor == "") setAttributes({
+    buttonColor: themeButtonBackground
+  });
+  if (attributes.buttonTextColor == "") setAttributes({
+    buttonTextColor: themeContrast
+  });
+  if (attributes.buttonBackgroundHoverColor == "") setAttributes({
+    buttonBackgroundHoverColor: themeButtonBackgroundHoverColor
+  });
+  function updateQuestion(newVal) {
+    props.setAttributes({
+      question: newVal
+    });
+  }
+  function updateSlug(newVal) {
+    props.setAttributes({
+      slug: newVal
+    });
+  }
+  function deleteAnswer(x) {
+    const newAnswers = props.attributes.answers.filter(function (z, index) {
+      return index != x;
+    });
+    props.setAttributes({
+      answers: newAnswers
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    ...blockProps,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CheckboxControl, {
+        label: "Required",
+        checked: attributes.required,
+        onChange: value => setAttributes({
+          required: value
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Unique field id",
+        value: attributes.dropdown_id,
+        onChange: value => setAttributes({
+          dropdown_id: value
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Unique field name",
+        help: "Unique to this page. No spaces. This is the name of the field in the form data when email is sent.",
+        value: attributes.dropdown_name,
+        onChange: value => setAttributes({
+          dropdown_name: value
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: attributes.formStyle,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Question:",
+        value: props.attributes.question,
+        onChange: updateQuestion,
+        style: {
+          fontSize: "20px"
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+        label: "Slug name:",
+        value: props.attributes.slug,
+        onChange: updateSlug,
+        style: {
+          fontSize: "20px"
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        style: {
+          fontSize: "13px",
+          margin: "20px 0 8px 0"
+        },
+        children: "Options:"
+      }), props.attributes.answers.map(function (answer, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+              value: answer,
+              onChange: x => {
+                const newAnswers = props.attributes.answers.concat([]);
+                newAnswers[index] = x;
+                props.setAttributes({
+                  answers: newAnswers
+                });
+              }
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+              variant: "link",
+              className: "pz-delete",
+              onClick: () => deleteAnswer(index),
+              children: "Delete"
+            })
+          })]
+        });
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+        variant: "primary",
+        onClick: () => {
+          props.setAttributes({
+            answers: props.attributes.answers.concat([""])
+          });
+        },
+        children: "Add another option"
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/pzdropdown/index.js":
+/*!*********************************!*\
+  !*** ./src/pzdropdown/index.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/pzdropdown/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/pzdropdown/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/pzdropdown/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/pzdropdown/block.json");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
+  icon: {
+    src: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
+      viewBox: "0 0 14 14",
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "0.7",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
+        id: "SVGRepo_bgCarrier",
+        strokeWidth: "0"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
+        id: "SVGRepo_tracerCarrier",
+        strokeLinecap: "round",
+        strokeLinejoin: "round"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
+        id: "SVGRepo_iconCarrier",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+          fill: "currentColor",
+          d: "M1.0000123,6.99975 v-4.7134 h5.8088699 c4.1431298,0 5.8462998,0.017 5.9393898,0.06 0.0718,0.033 0.15728,0.1182 0.189991,0.19 0.0823,0.1807 0.0823,3.6053 0,3.786 -0.105991,0.2326 -0.2305,0.2494 -1.84448,0.2494 h-1.5239708 v2.571 v2.5709 h-4.2849 -4.2849 v-4.7135 z"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+          fill: "#E1E8ED",
+          d: "M8.7128323,8.71375 v-2.1425 h-3.4279201 -3.42792 v2.1425 2.1424 h3.42792 3.4279201 v-2.1424 z"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+          fill: "currentColor",
+          d: "M2.71397,9.5708 v-0.4285 h2.5709399 2.57094 v0.4285 0.4284 h-2.57094 -2.5709399 v-0.4284 z M2.71397,7.8568 v-0.4285 h2.5709399 2.57094 v0.4285 0.4285 h-2.57094 -2.5709399 v-0.4285 z"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+          fill: "#E1E8ED",
+          d: "M8.7128323,4.4289 v-1.2855 h-3.4279201 -3.42792 v1.2855 1.2854 h3.42792 3.4279201 v-1.2854 z"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+          fill: "currentColor",
+          d: "M11.003913,5.5135 c0.192459,-0.1687 1.35108,-1.6577 1.35108,-1.7364 0,-0.1911 -0.1034,-0.2052 -1.49971,-0.2052 -1.3963208,0 -1.4997208,0.014 -1.4997208,0.2052 0,0.042 0.27994,0.4291 0.62208,0.8597 0.6085808,0.766 0.7934798,0.9704 0.8776398,0.9704 0.0229,0 0.0898,-0.042 0.148631,-0.094 z"
+        })]
+      })]
+    }),
+    foreground: "#0693e3"
+  },
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  /**
+   * @see ./save.js
+   */
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./src/pzdropdown/save.js":
+/*!********************************!*\
+  !*** ./src/pzdropdown/save.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */ });
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+ *
+ * @return {Element} Element to render.
+ */
+
+function save({
+  attributes
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
+    className: "form-style-1",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "pz-question-text",
+      children: attributes.question
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("select", {
+      name: attributes.slug,
+      required: attributes.required ? "required" : undefined,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+        value: "",
+        children: "Select an option"
+      }), attributes.answers.map(function (answer) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("option", {
+          value: answer,
+          children: answer
+        });
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./src/pzdropdown/style.scss":
+/*!***********************************!*\
+  !*** ./src/pzdropdown/style.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./src/pzdropdown/block.json":
+/*!***********************************!*\
+  !*** ./src/pzdropdown/block.json ***!
+  \***********************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pzdropdown","version":"0.1.0","title":"Peakforms Dropdown","category":"peakzebra","icon":"smiley","description":"Dropdown form field.","example":{},"supports":{"html":false},"textdomain":"peakforms","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"prompt":{"type":"string","default":"Value"},"question":{"type":"string"},"slug":{"type":"string"},"answers":{"type":"array","default":[""]},"dropdown_id":{"type":"string","default":"dropdown"},"dropdown_name":{"type":"string","default":"dropdown"},"loadCurrent":{"type":"boolean","default":false},"required":{"type":"boolean","default":false},"marginValues":{"type":"object","default":{"top":"50px","left":"10%","right":"10%","bottom":"50px"}},"formStyle":{"type":"string","default":"form-style-1"},"textColor":{"type":"string"}}}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var chunkIds = deferred[i][0];
+/******/ 				var fn = deferred[i][1];
+/******/ 				var priority = deferred[i][2];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"pzdropdown/index": 0,
+/******/ 			"pzdropdown/style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var chunkIds = data[0];
+/******/ 			var moreModules = data[1];
+/******/ 			var runtime = data[2];
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkpzforms"] = self["webpackChunkpzforms"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["pzdropdown/style-index"], () => (__webpack_require__("./src/pzdropdown/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

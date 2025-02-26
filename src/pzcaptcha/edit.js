@@ -32,60 +32,73 @@ import { PanelBody, TextControl, SelectControl } from "@wordpress/components";
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { siteKey, size, theme } = attributes;
+  const { siteKey, size, theme } = attributes;
 
-	return (
-		<>
-			<InspectorControls>
-				<PanelBody title={__("reCAPTCHA Settings", "peakforms")}>
-					<TextControl
-						label={__("Site Key", "peakforms")}
-						value={siteKey}
-						onChange={(value) => setAttributes({ siteKey: value })}
-						help={__("Enter your reCAPTCHA site key", "peakforms")}
-					/>
-					<SelectControl
-						label={__("Size", "peakforms")}
-						value={size}
-						options={[
-							{ label: __("Normal", "peakforms"), value: "normal" },
-							{ label: __("Compact", "peakforms"), value: "compact" },
-						]}
-						onChange={(value) => setAttributes({ size: value })}
-					/>
-					<SelectControl
-						label={__("Theme", "peakforms")}
-						value={theme}
-						options={[
-							{ label: __("Light", "peakforms"), value: "light" },
-							{ label: __("Dark", "peakforms"), value: "dark" },
-						]}
-						onChange={(value) => setAttributes({ theme: value })}
-					/>
-				</PanelBody>
-			</InspectorControls>
-			<div {...useBlockProps()}>
-				{!siteKey ? (
-					<p className="components-placeholder__error">
-						{__(
-							"Please enter a reCAPTCHA site key in the block settings.",
-							"peakforms",
-						)}
-					</p>
-				) : (
-					<div className="peakforms-recaptcha-preview">
-						<div className="recaptcha-placeholder">
-							{__("reCAPTCHA will appear here", "peakforms")}
-							<br />
-							<small>
-								{__("Size:", "peakforms")} {size}
-								{" | "}
-								{__("Theme:", "peakforms")} {theme}
-							</small>
-						</div>
-					</div>
-				)}
-			</div>
-		</>
-	);
+  // Get the site key from WordPress options
+  const { useEffect } = wp.element;
+
+  useEffect(() => {
+    async function fetchSiteKey() {
+      try {
+        const response = await fetch("/wp-json/pzforms/v1/recaptcha-site-key");
+        const data = await response.json();
+        setAttributes({ siteKey: data.siteKey });
+      } catch (error) {
+        console.error("Error fetching reCAPTCHA site key:", error);
+      }
+    }
+
+    if (!siteKey) {
+      fetchSiteKey();
+    }
+  }, []);
+
+  return (
+    <>
+      <InspectorControls>
+        <PanelBody title={__("reCAPTCHA Settings", "peakforms")}>
+          <SelectControl
+            label={__("Size", "peakforms")}
+            value={size}
+            options={[
+              { label: __("Normal", "peakforms"), value: "normal" },
+              { label: __("Compact", "peakforms"), value: "compact" },
+            ]}
+            onChange={(value) => setAttributes({ size: value })}
+          />
+          <SelectControl
+            label={__("Theme", "peakforms")}
+            value={theme}
+            options={[
+              { label: __("Light", "peakforms"), value: "light" },
+              { label: __("Dark", "peakforms"), value: "dark" },
+            ]}
+            onChange={(value) => setAttributes({ theme: value })}
+          />
+        </PanelBody>
+      </InspectorControls>
+      <div {...useBlockProps()}>
+        {!siteKey ? (
+          <p className="components-placeholder__error">
+            {__(
+              "Please enter a reCAPTCHA site key in the block settings.",
+              "peakforms"
+            )}
+          </p>
+        ) : (
+          <div className="peakforms-recaptcha-preview">
+            <div className="recaptcha-placeholder">
+              {__("reCAPTCHA will appear here", "peakforms")}
+              <br />
+              <small>
+                {__("Size:", "peakforms")} {size}
+                {" | "}
+                {__("Theme:", "peakforms")} {theme}
+              </small>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
 }

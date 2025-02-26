@@ -77,6 +77,8 @@ class MySettingsPage
     {
         add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
         add_action( 'admin_init', array( $this, 'page_init' ) );
+        // Add REST API endpoint registration
+        add_action( 'rest_api_init', array( $this, 'register_rest_routes' ) );
     }
 
     /**
@@ -212,6 +214,9 @@ class MySettingsPage
         if(isset($input['pzforms_recaptcha_secret_key'])) {
             $new_input['pzforms_recaptcha_secret_key'] = sanitize_text_field($input['pzforms_recaptcha_secret_key']);
         }
+        if(isset($input['pzforms_recaptcha_site_key'])) {
+            $new_input['pzforms_recaptcha_site_key'] = sanitize_text_field($input['pzforms_recaptcha_site_key']);
+        }
         return $new_input;
     }
 
@@ -258,6 +263,22 @@ class MySettingsPage
             '<input type="text" id="pzforms_recaptcha_site_key" name="pzforms_option_name[pzforms_recaptcha_site_key]" value="%s" />',
             isset( $this->options['pzforms_recaptcha_site_key'] ) ? esc_attr( $this->options['pzforms_recaptcha_site_key']) : ''
         );
+    }
+
+    // Add this new method
+    public function register_rest_routes() {
+        register_rest_route( 'pzforms/v1', '/recaptcha-site-key', array(
+            'methods' => 'GET',
+            'callback' => array( $this, 'get_recaptcha_site_key' ),
+            'permission_callback' => '__return_true'
+        ));
+    }
+
+    // Add this new method
+    public function get_recaptcha_site_key() {
+        $options = get_option('pzforms_option_name');
+        $site_key = isset($options['pzforms_recaptcha_site_key']) ? $options['pzforms_recaptcha_site_key'] : '';
+        return rest_ensure_response(array('siteKey' => $site_key));
     }
 }
 

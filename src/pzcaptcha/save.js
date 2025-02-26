@@ -16,13 +16,16 @@ import { useBlockProps } from "@wordpress/block-editor";
  * @return {Element} Element to render.
  */
 export default function save({ attributes }) {
-	const { siteKey, size, theme } = attributes;
+  const { siteKey, size, theme } = attributes;
 
-	const blockProps = useBlockProps.save({
-		"data-sitekey": siteKey,
-		"data-size": size,
-		"data-theme": theme,
-	});
+  // Note: Site key will be retrieved from WordPress options in view.js
+  // We don't need to handle it here in the save function
 
-	return <div {...blockProps}></div>;
+  const blockProps = useBlockProps.save({
+    "data-sitekey": siteKey,
+    "data-size": size,
+    "data-theme": theme,
+  });
+
+  return <div {...blockProps}></div>;
 }
