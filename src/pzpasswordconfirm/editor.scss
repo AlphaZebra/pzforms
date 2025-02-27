@@ -1,0 +1,33 @@
+.wp-block-peakforms-pzpasswordconfirm {
+  .pz-password-confirm-wrapper {
+    .pz-password-field,
+    .pz-confirm-field {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+
+        .required {
+          color: #ff0000;
+          margin-left: 4px;
+        }
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+          border-color: #007cba;
+          box-shadow: 0 0 0 1px #007cba;
+        }
+      }
+    }
+  }
+}

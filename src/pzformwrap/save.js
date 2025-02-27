@@ -14,16 +14,9 @@ export default function save({ attributes }) {
   let theProcessor = "do-form";
 
   attributes.class = "form-style-1";
-  const jsonAttributes = JSON.stringify(attributes);
 
   return (
     <div {...useBlockProps.save()}>
-      <div>
-        <pre style={{ color: "white" }} className="pz-form-atts">
-          {jsonAttributes}
-        </pre>
-      </div>
-
       <form
         action="/wp-admin/admin-post.php"
         method="POST"

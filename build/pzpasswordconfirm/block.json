@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "peakforms/pzpasswordconfirm",
+  "version": "0.1.0",
+  "title": "PZ Password Confirmation",
+  "category": "peakzebra",
+  "icon": "lock",
+  "description": "Password confirmation field with real-time matching validation.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "peakzebra",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "passwordPrompt": {
+      "type": "string",
+      "default": "Enter Password"
+    },
+    "confirmPrompt": {
+      "type": "string",
+      "default": "Confirm Password"
+    },
+    "field_id": {
+      "type": "string",
+      "default": "password_confirm"
+    },
+    "field_name": {
+      "type": "string",
+      "default": "password_confirm"
+    },
+    "width": {
+      "type": "string",
+      "default": "100%"
+    },
+    "required": {
+      "type": "boolean",
+      "default": true
+    },
+    "marginValues": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      }
+    },
+    "paddingValues": {
+      "type": "object",
+      "default": {
+        "top": "0px",
+        "bottom": "0px",
+        "left": "0px",
+        "right": "0px"
+      }
+    },
+    "showAsterisk": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
