@@ -101,11 +101,11 @@ export default function Edit(props) {
         }}
       >
         <TextControl
-          id={attributes.id}
-          name={attributes.name}
+          id={attributes.textfield_id}
+          name={attributes.textfield_name}
           label={
             <>
-              {attributes.prompt}
+              {attributes.textPrompt}
               {attributes.showAsterisk && (
                 <span style={{ color: "red" }}> *</span>
               )}

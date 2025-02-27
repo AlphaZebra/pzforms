@@ -99,13 +99,13 @@ export default function Edit(props) {
           margin: marginString,
         }}
       >
-        <label htmlFor={attributes.id}>
+        <label htmlFor={attributes.textarea_id}>
           {attributes.prompt}
           {attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
         </label>
         <TextareaControl
-          id={attributes.id}
-          name={attributes.name}
+          id={attributes.textarea_id}
+          name={attributes.textarea_name}
           rows={attributes.rows}
           cols={attributes.cols}
         />

@@ -123,7 +123,7 @@ function Edit(props) {
         margin: marginString
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-        htmlFor: attributes.id,
+        htmlFor: attributes.textarea_id,
         children: [attributes.prompt, attributes.showAsterisk && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
           style: {
             color: "red"
@@ -131,8 +131,8 @@ function Edit(props) {
           children: " *"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextareaControl, {
-        id: attributes.id,
-        name: attributes.name,
+        id: attributes.textarea_id,
+        name: attributes.textarea_name,
         rows: attributes.rows,
         cols: attributes.cols
       })]
@@ -172,7 +172,7 @@ function save({
         padding: `${attributes.paddingValues.top}px ${attributes.paddingValues.right}px ${attributes.paddingValues.bottom}px ${attributes.paddingValues.left}px`
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
-        for: attributes.id,
+        for: attributes.textarea_id,
         children: attributes.prompt
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("textarea", {
         id: attributes.textarea_id,
@@ -189,7 +189,7 @@ function save({
         padding: `${attributes.paddingValues.top}px ${attributes.paddingValues.right}px ${attributes.paddingValues.bottom}px ${attributes.paddingValues.left}px`
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
-        htmlFor: attributes.id,
+        htmlFor: attributes.textarea_id,
         children: [attributes.prompt, attributes.showAsterisk && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
           style: {
             color: "red"

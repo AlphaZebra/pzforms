@@ -14,7 +14,7 @@ export default function save({ attributes }) {
           padding: `${attributes.paddingValues.top}px ${attributes.paddingValues.right}px ${attributes.paddingValues.bottom}px ${attributes.paddingValues.left}px`,
         }}
       >
-        <label for={attributes.id}>{attributes.prompt}</label>
+        <label for={attributes.textarea_id}>{attributes.prompt}</label>
         <textarea
           id={attributes.textarea_id}
           name={attributes.textarea_name}
@@ -32,7 +32,7 @@ export default function save({ attributes }) {
           padding: `${attributes.paddingValues.top}px ${attributes.paddingValues.right}px ${attributes.paddingValues.bottom}px ${attributes.paddingValues.left}px`,
         }}
       >
-        <label htmlFor={attributes.id}>
+        <label htmlFor={attributes.textarea_id}>
           {attributes.prompt}
           {attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
         </label>

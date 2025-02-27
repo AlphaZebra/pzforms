@@ -16,11 +16,11 @@ export default function save({ attributes }) {
             : undefined,
         }}
       >
-        <label for={attributes.id}>{attributes.textPrompt}</label>
+        <label for={attributes.textfield_id}>{attributes.textPrompt}</label>
         <input
           type="text"
-          id={attributes.id}
-          name={attributes.name}
+          id={attributes.textfield_id}
+          name={attributes.textfield_name}
           style={{ width: attributes.width }}
         />
       </div>
@@ -28,14 +28,14 @@ export default function save({ attributes }) {
   } else {
     return (
       <div {...useBlockProps.save()}>
-        <label for={attributes.name}>
+        <label for={attributes.textfield_name}>
           {attributes.textPrompt}
           {attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
         </label>
         <input
           type="text"
-          id={attributes.id}
-          name={attributes.name}
+          id={attributes.textfield_id}
+          name={attributes.textfield_name}
           required
           style={{ width: attributes.width }}
         />
