@@ -5,6 +5,7 @@ import {
   TextControl,
   SelectControl,
   CheckboxControl,
+  ToggleControl,
 } from "@wordpress/components";
 import { __experimentalBoxControl as BoxControl } from "@wordpress/components";
 import { useEffect } from "@wordpress/element";
@@ -25,7 +26,6 @@ export default function Edit(props) {
         if (attributes.textPrompt === "Value") {
           if (ctr == 0) {
             alert("Please change the text field prompt to a unique value.");
-            alert(ctr);
           }
           ctr++;
         }
@@ -48,8 +48,14 @@ export default function Edit(props) {
           <TextControl
             label="Field variable name"
             help="Unique to this page. No spaces."
-            value={attributes.name ? attributes.name : attributes.field}
-            onChange={(value) => setAttributes({ name: value, id: value })}
+            value={
+              attributes.textfield_name
+                ? attributes.textfield_name
+                : attributes.textfield_id
+            }
+            onChange={(value) =>
+              setAttributes({ textfield_name: value, textfield_id: value })
+            }
           />
           <TextControl
             label="Width"
@@ -71,6 +77,16 @@ export default function Edit(props) {
             label="Multiline"
             checked={attributes.multiline}
             onChange={(value) => setAttributes({ multiline: value })}
+          />
+          <ToggleControl
+            label={__("Password Field", "peakzebra")}
+            checked={attributes.is_password}
+            onChange={(value) => setAttributes({ is_password: value })}
+            help={
+              attributes.is_password
+                ? __("Input will be masked as password field.", "peakzebra")
+                : __("Input will be shown as regular text field.", "peakzebra")
+            }
           />
         </PanelBody>
         <PanelBody title="Spacing" initialOpen={false}>

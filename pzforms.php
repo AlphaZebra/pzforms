@@ -124,8 +124,12 @@ class MySettingsPage
                 <li><?php echo esc_html__('Add a new PZ Form Wrapper block to the page where you\'d like the form to appear.', 'pzforms'); ?></li>
                 <li><?php echo esc_html__('Inside the dotted lines that mark the area of the PZ Form Wrapper block, add field blocks.', 'pzforms'); ?></li>
                 <li><?php echo esc_html__('You can of course add any field blocks as you\'d like, but pretty much any other block as well.', 'pzforms'); ?></li>
-                <li><?php echo esc_html__('Configure the settings for each.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('Configure the settings for each field you add.', 'pzforms'); ?></li>
                 <li><?php echo esc_html__('Repeat until the form is the way you want it.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('If you need to process the form data in some way, you can create a submit handler in the submit folder.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('The submit handler must be in the submit folder and must be named the same as the form.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('The submit handler will receive the form data as $_POST data.', 'pzforms'); ?></li>
+                <li><?php echo esc_html__('Find full documentation at https://peakzebra.com', 'pzforms'); ?></li>
             </ol>
           
         </div>

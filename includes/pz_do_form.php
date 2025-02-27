@@ -33,6 +33,16 @@ function do_form() {
         exit;
     }
 
+	// Check for form-specific submit handler
+	$submit_file = plugin_dir_path( dirname( __FILE__ ) ) . 'submit/' . $_POST['formName'] . '.php';
+	if (file_exists($submit_file)) {
+		include_once($submit_file);
+	} else {
+		echo "no submit file found";
+		echo $submit_file;
+		exit;
+	}
+
 	
 	// if marker exists in $_POST, then we need to de-escape it 
 	if( isset($_POST['marker']) ) {

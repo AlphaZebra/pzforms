@@ -18,7 +18,7 @@ export default function save({ attributes }) {
       >
         <label for={attributes.textfield_id}>{attributes.textPrompt}</label>
         <input
-          type="text"
+          type={attributes.is_password ? "password" : "text"}
           id={attributes.textfield_id}
           name={attributes.textfield_name}
           style={{ width: attributes.width }}
@@ -33,7 +33,7 @@ export default function save({ attributes }) {
           {attributes.showAsterisk && <span style={{ color: "red" }}> *</span>}
         </label>
         <input
-          type="text"
+          type={attributes.is_password ? "password" : "text"}
           id={attributes.textfield_id}
           name={attributes.textfield_name}
           required

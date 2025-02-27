@@ -23,6 +23,7 @@
 }
 
 .form-style-1 input[type=text],
+.form-style-1 input[type=password],
 .form-style-1 input[type=date],
 .form-style-1 input[type=datetime],
 .form-style-1 input[type=number],
@@ -47,6 +48,7 @@ select {
 }
 
 .form-style-1 input[type=text]:focus,
+.form-style-1 input[type=password]:focus,
 .form-style-1 input[type=date]:focus,
 .form-style-1 input[type=datetime]:focus,
 .form-style-1 input[type=number]:focus,

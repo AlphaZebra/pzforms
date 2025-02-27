@@ -51,7 +51,6 @@ function Edit(props) {
         if (attributes.textPrompt === "Value") {
           if (ctr == 0) {
             alert("Please change the text field prompt to a unique value.");
-            alert(ctr);
           }
           ctr++;
         }
@@ -75,10 +74,10 @@ function Edit(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
           label: "Field variable name",
           help: "Unique to this page. No spaces.",
-          value: attributes.name ? attributes.name : attributes.field,
+          value: attributes.textfield_name ? attributes.textfield_name : attributes.textfield_id,
           onChange: value => setAttributes({
-            name: value,
-            id: value
+            textfield_name: value,
+            textfield_id: value
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
           label: "Width",
@@ -105,6 +104,13 @@ function Edit(props) {
           onChange: value => setAttributes({
             multiline: value
           })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Password Field", "peakzebra"),
+          checked: attributes.is_password,
+          onChange: value => setAttributes({
+            is_password: value
+          }),
+          help: attributes.is_password ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Input will be masked as password field.", "peakzebra") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Input will be shown as regular text field.", "peakzebra")
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
         title: "Spacing",
@@ -181,7 +187,7 @@ function save({
         for: attributes.textfield_id,
         children: attributes.textPrompt
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-        type: "text",
+        type: attributes.is_password ? "password" : "text",
         id: attributes.textfield_id,
         name: attributes.textfield_name,
         style: {
@@ -201,7 +207,7 @@ function save({
           children: " *"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-        type: "text",
+        type: attributes.is_password ? "password" : "text",
         id: attributes.textfield_id,
         name: attributes.textfield_name,
         required: true,
@@ -291,7 +297,7 @@ module.exports = window["wp"]["i18n"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pztextfield","version":"0.1.0","title":"PZ Text Field","category":"peakzebra","icon":"smiley","description":"Text input field.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"textPrompt":{"type":"string","default":"Value"},"textfield_id":{"type":"string","default":"textfield_id"},"textfield_name":{"type":"string","default":"textfield_name"},"width":{"type":"string","default":"100%"},"required":{"type":"boolean","default":false},"multiline":{"type":"boolean","default":false},"marginValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"paddingValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"showAsterisk":{"type":"boolean","default":false}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"peakforms/pztextfield","version":"0.1.0","title":"PZ Text Field","category":"peakzebra","icon":"smiley","description":"Text input field.","example":{},"supports":{"html":false},"textdomain":"peakzebra","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","attributes":{"textPrompt":{"type":"string","default":"Value"},"textfield_id":{"type":"string","default":"textfield_id"},"textfield_name":{"type":"string","default":"textfield_name"},"width":{"type":"string","default":"100%"},"required":{"type":"boolean","default":false},"multiline":{"type":"boolean","default":false},"marginValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"paddingValues":{"type":"object","default":{"top":"0px","bottom":"0px","left":"0px","right":"0px"}},"showAsterisk":{"type":"boolean","default":false},"is_password":{"type":"boolean","default":false}}}');
 
 /***/ })
 
