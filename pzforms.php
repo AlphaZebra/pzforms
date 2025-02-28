@@ -4,7 +4,7 @@
  * Description:       Standalone block-based form builder.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           1.1.2
+ * Version:           1.1.3
  * Author:            PeakZebra / Robert Richardson
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-
+// version history
+// 1.1.2 - added recaptcha site key and secret key settings
+// 1.1.3 - added support for submit handlers
 
 require plugin_dir_path(__FILE__) . 'includes/class-peakforms-captcha.php';
 
