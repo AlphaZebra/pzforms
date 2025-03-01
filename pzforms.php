@@ -26,6 +26,25 @@ require plugin_dir_path(__FILE__) . 'includes/class-peakforms-captcha.php';
 //include the pz_do_form.php file
 require_once( plugin_dir_path( __FILE__ ) . 'includes/pz_do_form.php' );
 
+//include the premium features check
+if ( file_exists( plugin_dir_path( __FILE__ ) . 'includes/pzprem.php' ) ) {
+    require_once( plugin_dir_path( __FILE__ ) . 'includes/pzprem.php' );
+}
+
+
+
+if (pz_check_license()) {
+    //include the premium setup if available
+    if ( file_exists( plugin_dir_path( __FILE__ ) . 'includes/pzpremset.php' ) ) {
+        require_once( plugin_dir_path( __FILE__ ) . 'includes/pzpremset.php' );
+        // set callback for activation
+        register_activation_hook(
+            __FILE__,
+            'pz_onActivate'
+        );
+        
+    }
+}
 
 
 /**
