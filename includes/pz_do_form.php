@@ -64,16 +64,17 @@ function do_form() {
 	extract( $_POST, EXTR_OVERWRITE ); // let's break the form input into separate variables
 
 	// let's get the encryption key and email from the database
-    $options = get_option('peakforms_option_name');
-    $encryption_key = isset($options['peakforms_key']) ? $options['peakforms_key'] : '';
-    $email = isset($options['peakforms_email']) ? $options['peakforms_email'] : '';
-
+    $options = get_option('pzforms_option_name');
+    $encryption_key = isset($options['pzforms_key']) ? $options['pzforms_key'] : '';
+    $email = isset($options['pzforms_email']) ? $options['pzforms_email'] : '';
+	
 	// Get rid of the g-recaptcha-response field
 	unset($_POST['g-recaptcha-response']);
 	
 	
 	// send an email if the form included a send-to address
 	if( isset($email) && $email != '' ) {
+
 		$message = json_encode( $_POST );
 		$subject = "Form data from " . $formName;
 		wp_mail( $email, $subject, $message );
